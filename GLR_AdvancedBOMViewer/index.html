@@ -9,7 +9,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Guide: GLR Advanced BOM Viewer - v5.0 Consolidated</title>
+    <title>User Guide: GLR Advanced BOM Viewer - v6.0 Consolidated</title>
     <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -219,36 +219,80 @@
         <div style="flex: 1; text-align: center;">
             <h1 style="margin-bottom: 0;">User Guide: GLR Advanced BOM Viewer</h1>
             <div style="font-size: 13pt; font-weight: 600; color: #005A9E; letter-spacing: 0.5px; margin-top: 6px;">
-                Inspect, Edit, Validate &amp; Report
+                Inspect, Compare, Validate, Edit, Report
             </div>
         </div>
         <div style="width: 125px;"></div>
     </div>
     
-    <div class="version-info"><strong>Version 5.0</strong> &mdash; Consolidated provisional guide (v4 User Guide + v5 What's New)</div>
+    <div class="version-info"><strong>Version 6.0</strong> &mdash; Consolidated provisional guide (v4 User Guide + v6-v5 What's New)</div>
 
     <div class="note">
-        <p><strong>Document Scope:</strong> This provisional consolidated guide preserves the original v4 content structure while adding a dedicated <strong>What&#39;s New in v5.0</strong> section.</p>
-        <p>The detailed chapter-by-chapter help refresh will be completed in a future revision. Until then, use the section below as the authoritative summary of the new features and fixes introduced in version 5.0.</p>
+        <p><strong>Document Scope:</strong> This provisional consolidated guide preserves the original v4 content structure while adding a dedicated <strong>What&#39;s New in V6.0 and V5.0</strong> section.</p>
+        <p>The detailed chapter-by-chapter help refresh will be completed in a future revision. Until then, use the section below as the authoritative summary of the new features and fixes introduced in versions 5.0 and 6.0.</p>
     </div>
+	
+	
+	
+	<h2>0. What's New in Version 6.0</h2>
+    <p>This version introduces a series of powerful, user-centric enhancements designed to make the BOM management experience faster, more intuitive, and highly secure. Every new feature is built with the goal of automating repetitive tasks, preventing data-entry errors, and offering a highly responsive, modern interface.</p>
+
+    <h3>0.1 Intelligent Contextual Editing &amp; Formula Protection</h3>
+    <p>The editing experience has been completely unified and made context-aware, introducing advanced verification layers that protect the integrity of your CAD data:</p>
+    <ul>
+        <li><strong>Unified Single &amp; Bulk Update:</strong> Right-clicking any editable cell now allows you to update either a single row (<code>Update</code>) or a multi-selection (<code>Bulk Update</code>) in a single operation. This applies to standard iProperties, materials, appearances, and custom value lists. 
+        <br>To prevent frustrating "trial-and-error" attempts, the system performs an <strong>Upfront Editability Verification</strong>: when you right-click, it scans the selected components, and if editing is restricted, it replaces the menu item with a clear, descriptive warning (e.g., <code>⚠️ Material locked: contains standard assemblies</code> or <code>⚠️ Column write-protected by administrator</code>).</li>
+        <li><strong>Smart Formula Protection &amp; Expression Reader:</strong> Double-clicking an editable cell governed by an Inventor formula now loads the actual underlying formula expression (such as <code>=&lt;Description&gt;</code>) directly into the text box instead of the evaluated static text, allowing you to edit or correct formulas directly from the grid.
+        <br>Additionally, when performing text casing transformations (UPPERCASE or Title Case) , an interactive <strong>Formula Protection Dialog</strong> appears, allowing you to automatically exclude formula-based cells and protect your parametric CAD links from being overwritten by static text.</li>
+        <li><strong>Anti-Overwrite Safeguard (&lt;Varies&gt;):</strong> When performing a Bulk Update on a heterogeneous selection, the input box is pre-populated with <code>&lt;Varies&gt;</code>. If you click OK without modifying this text, the system intercepts the action and aborts the save, preventing you from accidentally writing the literal word "Varies" into your physical CAD files.</li>
+    </ul>
+
+    <h3>0.2 Ultra-Compact Tree, Differentiated Icons &amp; Parent Traceability</h3>
+    <p>The tree structure and component categorization have been completely re-engineered to provide maximum visual clarity and instant traceability:</p>
+    <ul>
+        <li><strong>Ultra-Compact Tree Layout:</strong> The hierarchical tree column has been re-designed.</li>
+        <li><strong>Differentiated File-Type Iconography:</strong> The grid loads dedicated icons (Part, Sheet Metal, Assembly, Weldment, Virtual, Content Center, iPart Member, iAssembly Member, AnyCAD Reference, Group).</li>
+        <li><strong>Promote Badge &amp; Parent Traceability:</strong> A vector-drawn overlay "⬆" next to the file icon visually flags promoted components. Hovering over this badge displays a tooltip showing exactly which parent assembly it belongs to (with support for <code>*Varies*</code> in case of multiple parent groupings), enabling immediate structural tracing without changing views.</li>       
+    </ul>
+
+    <h3>0.3 Smart Export Numbering &amp; Notes Customization</h3>
+    <p>The reporting engine has been extended to offer professional-grade layout control and numbering automation:</p>
+    <ul>
+        <li><strong>Dynamic Structure Numbering (#):</strong> Excel and HTML reports now include an optional dynamic numbering column (<code>#</code>). It automatically generates cascading dotted hierarchies (e.g., <code>1</code>, <code>1.1</code>, <code>1.1.1</code>) in Structured view to mirror the tree structure, and sequential flat numbering (<code>1</code>, <code>2</code>, <code>3</code>) in flat views.</li>
+        <li><strong>Export Customization and Session Persistence:</strong> The updated <code>ExportOptionsForm</code> features a dedicated numbering pane where you can customize the column label, start value, increment step, and delimiter. All these settings are saved in <code>GlobalSettings.xml</code> (v4) and persist across sessions.</li>
+    </ul>   
+	
+	
 
    <h2>0. What's New in Version 5.0</h2>
     <p>This section summarizes the main enhancements introduced in GLR Advanced BOM Viewer v5.0. It is intentionally separated from the base user guide so that new capabilities are immediately visible while preserving the original v4 documentation layout.</p>
 
-   <h3>0.1 Advanced BOM Compare (Local &amp; External Configurations)</h3>
+    <h3>0.4 Advanced BOM Compare</h3>
+    <p>You can now run a complete visual comparison between different designs, revisions, or configurations:</p>
     <ul>
-        <li><strong>Dual-Mode Comparison:</strong> You can now run a complete visual comparison between two different configurations. The tool supports comparing the active assembly completed configuration (Baseline) against another local <strong>Model State</strong>, or browsing to load a completely different <strong>external assembly (.iam)</strong> from your disk.</li>
-        <li><strong>On-Demand External Sandbox:</strong> When comparing against an external file, the assembly is opened silently in the background (Sandbox) and kept active in memory only during the Compare session. This ensures that your active 3D viewport is never altered, file load times are near-instantaneous, and no file locks are left behind.</li>
-        <li><strong>Multi-State Target Selection:</strong> When browsing an external assembly, the target dropdown automatically queries and lists all of its valid, non-delegated Model States. You can choose any configuration to compare, and the system extracts its BOM data on-demand only when you click the <strong>Play (▶)</strong> button.</li>
-        <li><strong>Split-View Iconography (Row 0):</strong> To prevent visual bias, the main top-level assembly row (Row 0) displays a unique <strong>Split-View comparison icon (⇄)</strong> instead of a single 3D model thumbnail, visually representing the comparison boundary between the solid baseline (left) and the dashed target (right).</li>
-        <li><strong>Faceted Isolate Filters (No-Click Navigation):</strong> The comparison checkboxes (<code>Added</code>, <code>Removed</code>, <code>Modified</code>, <code>Unchanged</code>) have been redesigned as inclusive isolators. By default, they are unchecked and display the entire compared BOM. Checking a box instantly filters the grid to show <strong>only</strong> that specific category, reducing the clicks needed to analyze changes from three to just one.</li>
-        <li><strong>Live Symmetrical Status Bar:</strong> When no row is selected, the status bar displays a live, real-time count of all compared components, perfectly matching the active checkboxes (e.g., <code>(1 Added • 0 Removed • 2 Modified • 15 Unchanged)</code>). This count updates dynamically as you toggle filters or type in the search bar.</li>
+        <li><strong>Standard Assemblies Comparison:</strong> Compare the active assembly configuration (Baseline) against another local <strong>Model State</strong> of the same file.</li>
+        <li><strong>iAssemblies Comparison:</strong> Compare the active member configuration against another local <strong>Member</strong> defined in your iAssembly Factory table.</li>
+        <li><strong>External Assemblies Comparison:</strong> Compare your active assembly against a completely different assembly file (<code>.iam</code>) on disk. You can freely mix and match, comparing any local configuration against any ModelState or Member of the external file.</li>
+        <li><strong>Adaptive Views (Structured &amp; Parts Only):</strong> The comparison automatically adapts to your starting view.
+            <ul>
+                <li>In <strong>Structured</strong> view, it compares the hierarchy of your sub-assemblies.</li>
+                <li>In <strong>Parts Only</strong> view, it compares a flat list of individual parts, automatically dissolving sub-assemblies and grouping identical components by Part Number to show aggregated quantities.</li>
+            </ul>
+        </li>
+        <li><strong>Interactive Status Filters (Added • Removed • Modified • Unchanged):</strong> Results are color-coded in the grid for instant identification:
+            <ul>
+                <li>🔴 <strong>Removed (Red &amp; Strikethrough):</strong> Components that existed in the Baseline but were deleted in the Target.</li>
+                <li>🔵 <strong>Added (Blue):</strong> Components newly inserted in the Target.</li>
+                <li>🔵 <strong>Modified (Bold Blue/Cyan):</strong> Components present in both but with changed properties (e.g., description, quantity, mass). Hovering over a modified cell displays the previous baseline value in a tooltip.</li>
+                <li>⚫ <strong>Unchanged (Grey):</strong> Components that remained identical between both versions.</li>
+                <li>Use the checkboxes to instantly filter and isolate specific categories (for example, to display only modified and added components).</li>
+            </ul>
+        </li>
         <li><strong>Instant Selection Details:</strong> Clicking any row in the comparison grid immediately displays its detailed changes in the bottom status bar (e.g., exactly which properties changed, their new values, and their previous baseline values). This allows rapid keyboard-based inspection without waiting for mouse-hover tooltip delays.</li>
-        <li><strong>Symmetrical Target Alignment:</strong> If you select an external target from the ComboBox, the active local Inventor viewport automatically snaps back to your original baseline ModelState, giving you a stable 3D visual reference while preparing to run the comparison.</li>
-        <li><strong>BOM Compare Reporting &amp; Export:</strong> When exporting your comparison results, the visual semantics are fully preserved in Excel (.xlsx) and HTML formats (Red for Removed, Blue for Added, and Blue Bold for Modified). Modified cells in the Excel export automatically embed the exact previous baseline values as native cell comments, providing perfect traceability. CSV export is automatically blocked during Compare to prevent the loss of this critical visual and historical data.</li>
+        <li><strong>BOM Compare Reporting &amp; Export:</strong> Export your comparison results to professionally formatted Excel (.xlsx) or HTML. All semantic colors (Red, Blue, Bold Blue/Cyan) are fully preserved. In the Excel export, modified cells contain comments showing the previous baseline values. CSV export is automatically disabled in Compare Mode to protect the visual integrity of your comparison data.</li>
     </ul>
 
-    <h3>0.2 Real-Time Sync &amp; Non-Modal Stability (Always-On Form)</h3>
+    <h3>0.5 Real-Time Sync &amp; Non-Modal Stability (Always-On Form)</h3>
     <ul>
         <li><strong>Always-On, Non-Modal Operation:</strong> The BOM Viewer now runs as a fully non-modal window, remaining open and interactive while you work directly in the 3D viewport. There is no need to close and reopen the form during your design sessions.</li>
         <li><strong>Live Structural &amp; Property Updates:</strong> Adding, deleting, replacing, or suppressing components in your assembly is automatically reflected in the grid.</li>
@@ -256,40 +300,40 @@
         <li><strong>Safe Selection Pipeline:</strong> The selection tracking system has been optimized to prevent feedback loops between the 3D viewport and the grid when performing visibility actions (<code>Isolate</code>, <code>Hide</code>, <code>Show</code>), eliminating visual flickering and loss of focus.</li>
     </ul>
 
-    <h3>0.3 Advanced Grouping &amp; Multi-Level Sorting</h3>
+    <h3>0.6 Advanced Grouping &amp; Multi-Level Sorting</h3>
     <ul>
         <li><strong>Multi-Level Grouping (Up to 3 Criteria):</strong> You can now group your BOM by up to three properties simultaneously in a cascading hierarchy. For example, you can group sheet metal components first by <strong>Type</strong> (<code>Plate</code>, <code>Roll</code>, <code>Fold</code>) and then by <strong>Thickness</strong>. This prevents dissimilar parts from merging and aligns the BOM representation with real-world manufacturing and workshop scheduling.</li>
         <li><strong>Composite Sorting with Priority Indicators:</strong> Click a column header to set the primary sort. Hold <code>Shift</code> and click additional headers to define secondary and tertiary sorting hierarchies (for example, <code>Material</code> &rarr; <code>Part Number</code> &rarr; <code>Mass</code>). Sorted columns display clear priority labels (for example, <code>1▲</code>, <code>2▼</code>) directly in the header.</li>
         <li><strong>Smart Grouping Protection:</strong> When a multi-level grouping is active, the quick grouping dropdown automatically locks and displays a clear <code>Custom</code> label. Hovering over it turns the cursor into a hand pointer, indicating that a click will open the advanced grouping configuration panel.</li>
     </ul>
 
-    <h3>0.4 Data Protection &amp; Configuration Locks</h3>
+    <h3>0.7 Data Protection &amp; Configuration Locks</h3>
     <ul>
         <li><strong>User-Protected Columns:</strong> You can now mark specific columns as <strong>Protected</strong> within the Configuration Editor. This is designed to safeguard fields and properties that are automatically populated by company iLogic rules, databases, or external triggers, preventing manual overrides by users.</li>
         <li><strong>Visual Lock Indicators:</strong> Protected columns are automatically styled with a light grey background, and a secure lock icon (<code>🔒</code>) is displayed in the column header, giving clear visual feedback on read-only columns.</li>
         <li><strong>Physical Write Protection Respect:</strong> The Viewer natively honors Inventor&#39;s built-in write restrictions. It automatically detects and locks rows corresponding to iPart and iAssembly members, Content Center components, and read-only files on disk, displaying the specific restriction reason in the status bar or as a tooltip.</li>
     </ul>
 
-    <h3>0.5 Clipboard, Formulas &amp; Casing Batch Actions</h3>
+    <h3>0.8 Clipboard, Formulas &amp; Casing Batch Actions</h3>
     <ul>
         <li><strong>Direct Inventor Formula Editing:</strong> Double-clicking an editable cell that contains an Inventor formula (such as <code>=&lt;Description&gt;</code> or <code>=&lt;PartNumber&gt;</code>) loads the actual underlying formula into the text box instead of the evaluated static text, allowing you to edit or correct formulas directly from the grid.</li>
         <li><strong>Group-Level Text Transformations:</strong> When a grouped row displays <code>&lt;Varies&gt;</code> (indicating that the underlying components have different values), you can right-click the text box during editing to apply <strong>UPPERCASE</strong> or <strong>Capitalize</strong> (Title Case). The Viewer will silently propagate this formatting to all physical components of the group in the background under a single, clean transaction.</li>
         <li><strong>Restored Editing Clipboard:</strong> A dedicated right-click context menu inside the cell text box restores standard clipboard actions (<code>Undo</code>, <code>Cut</code>, <code>Copy</code>, <code>Paste</code>, <code>Delete</code>, <code>Select All</code>), with menu items dynamically enabling or disabling based on the active editing state.</li>
     </ul>
 
-    <h3>0.6 Live Search &amp; Precise Highlighting</h3>
+    <h3>0.9 Live Search &amp; Precise Highlighting</h3>
     <ul>
         <li><strong>Instant Live Search:</strong> The search engine updates the grid results in real-time as you type or change parameters (such as the target column or search mode). There is no need to manually click the search button to see the filtered dataset.</li>
         <li><strong>Perfect Substring Highlighting:</strong> The text highlighting system has been re-engineered using zero-margin character drawing. This eliminates artificial spaces and gaps (such as <code>Assembly</code> rendering as <code>Ass embly</code>) when displaying matched search strings, keeping the text smooth and perfectly readable.</li>
         <li><strong>Cohesive State Feedback:</strong> The search button dynamically updates its icon: it turns into an active reset filter (<code>📥</code>) when a search is running, and stays perfectly aligned with the semantic colored border of the grid container.</li>
     </ul>
 
-    <h3>0.7 CAD/BIM Revit Category Support</h3>
+    <h3>0.10 CAD/BIM Revit Category Support</h3>
     <ul>
         <li><strong>Revit Family Category Mapping:</strong> Built-in support for the standard Revit <strong>Category</strong> property allows seamless CAD/BIM model coordination. Localized category IDs are automatically mapped to descriptive, user-friendly names in your grid, and writing back to this field correctly updates the model definition.</li>
     </ul>
 
-    <h3>0.8 Per-Document Layouts &amp; Presets (With Compare Protection)</h3>
+    <h3>0.11 Per-Document Layouts &amp; Presets (With Compare Protection)</h3>
     <ul>
         <li><strong>Assembly-Specific Layouts (AutoSave):</strong> The Viewer remembers column visibilities, custom widths, active filters, and sorting choices individually for each assembly. This is managed automatically via file-specific secure hashing, so you never lose your layout configuration when switching between different projects.</li>
         <li><strong>Structured Presets Menu:</strong> The presets dropdown has been organized into clear, intuitive sections separating system default templates, user-saved presets, and administrative template actions.</li>
@@ -298,7 +342,7 @@
         <li><strong>Anti-Corruption Window Guard:</strong> If you close the window directly using the Windows "X" close button while Compare Mode is active, the system automatically bypasses the AutoSave of your layout and filters. This prevents the temporary comparison layout from overwriting and corrupting your standard ferial settings on disk, and safely restores your active Inventor viewport back to its initial baseline ModelState.</li>
     </ul>
 
-    <h3>0.9 General Fixes &amp; Stability Enhancements</h3>
+    <h3>0.12 General Fixes &amp; Stability Enhancements</h3>
     <p>In addition to the main features, several minor issues have been resolved to improve overall reliability and performance:</p>
     <ul>
         <li><strong>Resolved Search Overlap:</strong> Fixed an issue where searching under <code>(All Columns)</code> would incorrectly match hidden columns (such as <code>File Path</code> acting as the background key for the <code>Thumbnail</code> column). The search engine now strictly limits its scan to visible text columns.</li>
@@ -708,6 +752,10 @@
             </tr>
         </thead>
         <tbody>
+          <tr>
+                <td>6.0</td>
+                <td><strong>Major Release:</strong> Context-aware editing experience with unified single and Bulk Update actions, featuring upfront editability warnings and automatic expression protection. Ultra-compact hierarchical tree layout with differentiated file-type iconography, AnyCAD references, and vector-drawn Promote badges with hover-based parent tracing. Advanced reporting upgrades including a dynamic numbering column (<code>#</code>) with custom start, increment, and delimiter settings managed and persisted via a dedicated Options dashboard.</td>
+            </tr>
           <tr>
                 <td>5.0</td>
                 <td><strong>Major Release:</strong> Advanced BOM Compare module supporting both local Model States and external assemblies (.iam) with on-demand background scanning and safe clipboard/casing batch actions. Symmetrical 3D viewport alignment and "Split-View" iconography. Real-time non-modal synchronization, multi-level grouping (up to 3 criteria), composite sorting with priority indicators, protected columns with locks, Revit Category integration, per-document layouts (with "X" close protection), plus multiple stability and rendering fixes.</td>
