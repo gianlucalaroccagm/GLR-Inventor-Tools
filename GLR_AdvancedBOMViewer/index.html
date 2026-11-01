@@ -7,15 +7,14 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Guide: GLR Advanced BOM Viewer - v6.0</title>
-    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>User Guide: GLR Advanced BOM Viewer - v7.0</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             font-size: 11pt;
@@ -26,8 +25,8 @@
             padding: 0 1em;
             background-color: #ffffff;
         }
-        
-        h1, h2, h3, h4, h5, h6 {
+
+        h1, h2, h3, h4 {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             font-weight: 300;
             margin-top: 1.8em;
@@ -35,7 +34,7 @@
             padding-bottom: 0.5em;
             border-bottom: 1px solid #dee2e6;
         }
-        
+
         .title-container {
             display: flex;
             align-items: center;
@@ -50,24 +49,24 @@
             height: 125px;
             margin-right: 15px;
         }
-        
+
         h1 {
             font-size: 24pt;
             font-weight: 400;
             color: #005A9E;
             margin-top: 0;
-            border-bottom: none; 
+            border-bottom: none;
             padding-bottom: 0;
             margin-bottom: 0;
             text-align: left;
         }
-        
+
         h2 {
             font-size: 18pt;
             color: #005A9E;
             font-weight: 500;
         }
-        
+
         h3 {
             font-size: 14pt;
             font-weight: 600;
@@ -75,25 +74,33 @@
             color: #343a40;
             padding-bottom: 0;
         }
-        
+
+        h4 {
+            font-size: 12pt;
+            font-weight: 600;
+            border-bottom: none;
+            color: #343a40;
+            padding-bottom: 0;
+            margin-top: 1.4em;
+            margin-bottom: 0.6em;
+        }
+
         .version-info {
             text-align: center;
             font-size: 12pt;
             color: #666;
             margin-top: 1em;
             margin-bottom: 2em;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         p, li, td, th {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             font-size: 11pt;
         }
-        
+
         p {
             margin-bottom: 1em;
         }
-        
+
         code {
             background-color: #e9ecef;
             padding: .2em .4em;
@@ -103,108 +110,157 @@
             font-family: 'Consolas', 'Courier New', monospace;
             color: #333;
         }
-        
+
         strong {
             font-weight: 600;
             color: #000;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         ul, ol {
             padding-left: 25px;
             margin-bottom: 1.5em;
         }
-        
+
         li {
-            margin-bottom: 0.8em;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin-bottom: 0.6em;
         }
-        
+
         ul ul, ol ol, ul ol, ol ul {
             margin-top: 0.5em;
             margin-bottom: 0.5em;
         }
-        
+
         .note {
             background-color: #fff3cd;
             border-left: 5px solid #ffc107;
             padding: 15px 20px;
             margin: 1.5em 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             border-radius: 4px;
         }
-        
+
         .note p {
             margin-bottom: 0.5em;
         }
-        
+
         .note p:last-child {
             margin-bottom: 0;
         }
-        
+
+        .beyond {
+            background-color: #eaf3fb;
+            border-left: 5px solid #0078D4;
+            padding: 12px 20px;
+            margin: 1.2em 0 1.5em 0;
+            border-radius: 4px;
+        }
+
+        .beyond .beyond-title {
+            font-weight: 600;
+            color: #005A9E;
+            margin-bottom: 0.4em;
+        }
+
+        .beyond ul {
+            margin-bottom: 0;
+        }
+
+        .beyond li {
+            margin-bottom: 0.3em;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
             margin: 1.5em 0;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         th, td {
             border: 1px solid #dee2e6;
-            padding: 12px 15px;
+            padding: 10px 14px;
             text-align: left;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            vertical-align: top;
         }
-        
+
         th {
             background-color: #f8f9fa;
             font-weight: 600;
         }
-        
+
         tr:nth-child(even) {
             background-color: #f8f9fa;
         }
-        
+
         hr {
             border: 0;
             border-top: 1px solid #dee2e6;
             margin: 2.5em 0;
         }
-        
+
         .contact-info {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             font-weight: 600;
             color: #0078D4;
         }
-        
+
         .workflow-example {
             background-color: #f8f9fa;
             border-radius: 6px;
             padding: 15px;
             margin: 1em 0;
         }
-        
+
         .workflow-example strong {
             color: #005A9E;
         }
-        
+
+        .workflow-example ol {
+            margin-top: 0.5em;
+            margin-bottom: 0;
+        }
+
+        .features li {
+            margin-bottom: 1em;
+        }
+
+        .features .vs {
+            display: block;
+            font-size: 10pt;
+            color: #6c757d;
+            margin-top: 0.15em;
+        }
+
+        .toc {
+            column-count: 2;
+            column-gap: 2em;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .toc li {
+            margin-bottom: 0.3em;
+        }
+
+        .toc a {
+            color: #005A9E;
+            text-decoration: none;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
         @media print {
             body {
                 max-width: none;
                 margin: 0;
                 padding: 1em;
             }
-            
-            .note {
+
+            .note, .beyond, .workflow-example, table {
                 break-inside: avoid;
             }
-            
-            table {
-                break-inside: avoid;
-            }
-            
-            h1, h2, h3 {
+
+            h1, h2, h3, h4 {
                 break-after: avoid;
             }
         }
@@ -222,803 +278,574 @@
         </div>
         <div style="width: 125px;"></div>
     </div>
-    
-    <div class="version-info"><strong>Version 6.0</strong> &mdash; Complete User Guide</div>
 
-    <!-- ============================================================ -->
-    <!-- 0. WHAT'S NEW IN VERSION 6.0                                   -->
-    <!-- ============================================================ -->
+    <div class="version-info"><strong>Version 7.0</strong> &mdash; User Guide</div>
 
-    <h2>0. What's New in Version 6.0</h2>
-    <p>Version 6.0 introduces a series of powerful enhancements designed to make BOM management faster, more intuitive, and secure.</p>
-
-    <ul>
-        <li><strong>Intelligent Contextual Editing:</strong> Right-click any editable cell to update a single row or a multi-selection in one operation. The system performs an upfront editability verification and replaces the menu item with a clear warning if editing is restricted (e.g., <code>⚠️ Material locked: contains standard assemblies</code>).</li>
-        <li><strong>Formula Protection &amp; Expression Reader:</strong> Double-clicking a cell governed by an Inventor formula now loads the underlying expression (e.g., <code>=&lt;Description&gt;</code>) directly into the text box. When performing text casing transformations (UPPERCASE or Title Case), an interactive dialog allows you to exclude formula-based cells and protect your parametric links.</li>
-        <li><strong>Ultra-Compact Tree &amp; Differentiated Icons:</strong> The hierarchical tree column has been re-designed with dedicated icons for Part, Sheet Metal, Assembly, Weldment, Virtual, Content Center, iPart/iAssembly Member, AnyCAD Reference, and Group. A vector-drawn overlay <code>⬆</code> visually flags promoted components.</li>
-        <li><strong>Smart Export Numbering:</strong> Excel and HTML reports now include an optional dynamic numbering column (<code>#</code>). It automatically generates cascading dotted hierarchies in Structured view and sequential flat numbering in flat views. Customize the label, start value, increment, and delimiter, with all settings persisted across sessions.</li>
-        <li><strong>Advanced BOM Compare:</strong> Compare the active assembly against another local Model State, iAssembly Member, or a completely external assembly file (<code>.iam</code>). Results are color-coded (Added, Removed, Modified, Unchanged) with interactive status filters and export to Excel or HTML.</li>
-        <li><strong>Real-Time Sync &amp; Non-Modal Operation:</strong> The BOM Viewer runs as a fully non-modal window, remaining open while you work directly in the 3D viewport. Structural changes (add, delete, suppress) and Model State switches are automatically reflected in the grid.</li>
-        <li><strong>Multi-Level Grouping &amp; Composite Sorting:</strong> Group your BOM by up to three properties simultaneously in a cascading hierarchy. Hold <code>Shift</code> and click multiple column headers to define secondary and tertiary sorting hierarchies, with priority labels (<code>1▲</code>, <code>2▼</code>) displayed in the headers.</li>
-        <li><strong>Data Protection &amp; Configuration Locks:</strong> Mark specific columns as <strong>Protected</strong> in the Configuration Editor to safeguard fields automatically populated by iLogic rules. Protected columns display a lock icon (<code>🔒</code>) and a light grey background.</li>
-        <li><strong>Live Search &amp; Precise Highlighting:</strong> The search engine updates the grid results in real-time as you type. The text highlighting system uses zero-margin character drawing, eliminating artificial spaces and gaps.</li>
-        <li><strong>Revit Category Support:</strong> Built-in support for the standard Revit <strong>Category</strong> property allows seamless CAD/BIM model coordination.</li>
-        <li><strong>Per-Document Layouts:</strong> The Viewer remembers column visibilities, custom widths, active filters, and sorting choices individually for each assembly via secure file-specific hashing.</li>
+    <h2>Contents</h2>
+    <ul class="toc">
+        <li><a href="#s1">1. Key Features</a></li>
+        <li><a href="#s2">2. Getting started</a></li>
+        <li><a href="#s3">3. The three views</a></li>
+        <li><a href="#s4">4. The grid</a></li>
+        <li><a href="#s5">5. Search and filters</a></li>
+        <li><a href="#s6">6. Grouping</a></li>
+        <li><a href="#s7">7. Editing</a></li>
+        <li><a href="#s8">8. Material, Appearance, BOM Structure, Revit Category</a></li>
+        <li><a href="#s9">9. Quantities, masses and units</a></li>
+        <li><a href="#s10">10. Validation rules and Show only issues</a></li>
+        <li><a href="#s11">11. Dashboard and 3D Heatmap</a></li>
+        <li><a href="#s12">12. BOM Compare</a></li>
+        <li><a href="#s13">13. Export</a></li>
+        <li><a href="#s14">14. Presets, Home and session memory</a></li>
+        <li><a href="#s15">15. Configuration Editor</a></li>
+        <li><a href="#s16">16. Your settings, updates and backups</a></li>
+        <li><a href="#s17">17. Typical workflows</a></li>
+        <li><a href="#s18">18. Support and version history</a></li>
     </ul>
 
     <hr>
 
     <!-- ============================================================ -->
-    <!-- 1. INTRODUCTION                                               -->
-    <!-- ============================================================ -->
+    <h2 id="s1">1. Key Features</h2>
+    <p>GLR Advanced BOM Viewer is a window on your assembly's Bill of Materials that stays open while you work in the model. It reads the components of the active assembly with the same quantity rules as Inventor, and lets you do what the Inventor BOM cannot: filter, group, check, edit in bulk, compare and report.</p>
 
-    <h2>1. Introduction</h2>
-    <p>Welcome to the GLR Advanced BOM Viewer, a powerful add-in for Autodesk Inventor designed to revolutionize how you interact with your Bill of Materials (BOM). This tool goes beyond Inventor's standard capabilities, offering a flexible and highly configurable interface to view, analyze, group, validate, and export your assembly data quickly and efficiently.</p>
-
-    <h3>1.1 Key Features</h3>
-    <ul>
-        <li><strong>Powerful Data Grid:</strong> View your data in a modern grid featuring sorting, advanced column filters, multi-value global search, and live real-time updates.</li>
-        <li><strong>Total Configuration:</strong> You decide which properties to display (iProperties, physical properties, custom properties) and in what order, with per-document layout persistence.</li>
-        <li><strong>Multiple Views:</strong>
-            <ul>
-                <li><strong>Structured:</strong> Analyze your BOM while maintaining the sub-assembly hierarchy, with ultra-compact tree and differentiated icons.</li>
-                <li><strong>Parts Only:</strong> Get a complete, flat list of every individual part.</li>
-                <li><strong>From Selection:</strong> Instantly inspect only the components you have selected in the Inventor model.</li>
-            </ul>
-        </li>
-        <li><strong>Dynamic Grouping:</strong> Group identical rows based on any property (Part Number, Material, etc.). Features <strong>multi-level grouping</strong> (up to 3 criteria) and hierarchical fallback logic to ensure components are always logically aggregated.</li>
-        <li><strong>Interactive Dashboard:</strong> Visualize your BOM data with dynamic pie charts. Click on chart segments to instantly select corresponding components in the data grid and the 3D model. Numerical values are mathematically normalized to ensure proportional accuracy.</li>
-        <li><strong>Validation Checker:</strong> Define custom rules to automatically highlight invalid or missing data. Non-compliant cells are highlighted in orange with descriptive tooltips.</li>
-        <li><strong>In-Place Editing:</strong> Edit iProperties, Material, Appearance, and BOM Structure directly from the grid. Supports dropdown lists (Value Lists), dedicated pickers, and Inventor formula expressions.</li>
-        <li><strong>Advanced BOM Compare:</strong> Compare your active assembly against local Model States, iAssembly Members, or external assembly files. Results are color-coded with interactive filters and export capabilities.</li>
-        <li><strong>Custom Presets &amp; Auto-Save:</strong> Save and load your favorite view configurations. The tool features an "Auto-Healing" logic that automatically re-enables required properties in the global configuration.</li>
-        <li><strong>Advanced Export:</strong> Export your current view to professionally formatted Excel (.xlsx), web-ready HTML, or data-interchange CSV format, including dynamic numbering, component thumbnails, and validation comments.</li>
-        <li><strong>3D Model Interaction:</strong> Selection is synchronized in real-time between the grid and the Inventor 3D model. Partial selections are shown with a grey border, full selections with a blue border.</li>
-        <li><strong>Model States &amp; iAssembly Support:</strong> Each Model State and iAssembly Member is treated as a distinct document, ensuring correct mass, properties, and thumbnails.</li>
-        <li><strong>Unit Conversion &amp; Integrity:</strong> Length and mass values can be displayed in strict (document) units or converted. In Strict Mode, discordant units within a group are flagged with <code>&lt;Error&gt;</code> to prevent mathematical inconsistencies.</li>
+    <ul class="features">
+        <li><strong>Always open, always in sync</strong> &ndash; Work in the model with the BOM beside it: selection goes both ways, and changes, model states and saves are followed live.
+            <span class="vs">Inventor: the Bill of Materials is a dialog you must close to work in the model.</span></li>
+        <li><strong>Three views and a real tree</strong> &ndash; Model Data, Structured and Parts Only, each with its own columns and filters; open sub-assemblies branch by branch, with the main assembly as the first row.
+            <span class="vs">Inventor: no row for the main assembly; Structured and Parts Only must be enabled first.</span></li>
+        <li><strong>Find anything in seconds</strong> &ndash; Search with operators for text, numbers, dates and yes/no, several values at once, Excel-style column filters, and Isolate rows to keep just what you selected.
+            <span class="vs">Inventor: no filters in the BOM editor.</span></li>
+        <li><strong>Group by anything</strong> &ndash; Group rows by any property, up to three levels (Material &gt; Thickness &gt; Part Number); &lt;Varies&gt; shows where the files of a row disagree.
+            <span class="vs">Inventor: grouping only in the drawing parts list.</span></li>
+        <li><strong>Edit hundreds of rows at once</strong> &ndash; Paste a column from Excel, give one value to many rows, fix letter case, change material, appearance or BOM Structure on many components: one Undo step per command.
+            <span class="vs">Inventor: one cell at a time.</span></li>
+        <li><strong>Safe editing</strong> &ndash; Library, Content Center and read-only files, iPart/iAssembly members and protected columns are locked with the reason; formulas are shown and protected; value lists guide the input.
+            <span class="vs">Inventor: no value lists, no protected columns.</span></li>
+        <li><strong>Validation rules</strong> &ndash; Your company rules (required fields, allowed values, formats, letter case) are checked on every component; Show only issues turns the problems into a work list, also in the 3D model.
+            <span class="vs">Inventor: no data checks without iLogic programming.</span></li>
+        <li><strong>BOM Compare</strong> &ndash; Compare with another model state, iAssembly member or assembly file: added, removed and changed rows, value by value, without changing your files.
+            <span class="vs">Inventor: no BOM comparison.</span></li>
+        <li><strong>See your BOM in 3D</strong> &ndash; A pie chart and colors projected on the model by any property or by validation result; click a slice to select its components. Your files are never changed.
+            <span class="vs">Inventor: no charts; coloring means changing appearances.</span></li>
+        <li><strong>Reports ready to send</strong> &ndash; Excel, HTML and CSV at once, with the look of the grid, thumbnails, notes, item numbering and filters inside the file.
+            <span class="vs">Inventor: plain data export of one view.</span></li>
+        <li><strong>Quantities, masses and units you can trust</strong> &ndash; Inventor's quantity rules and overrides, masses for every row, units of your choice and quick sums; a clear &lt;Error&gt; instead of a wrong total.
+            <span class="vs">Inventor: masses one file at a time, in the document units.</span></li>
+        <li><strong>Your layouts, one click away</strong> &ndash; Presets of all three views, a personal Home layout and the memory of how you left each assembly.
+            <span class="vs">Inventor: column setup assembly by assembly.</span></li>
+        <li><strong>Also for reviewers</strong> &ndash; Read-Only mode for those who only check, and full support for Inventor Read-only Mode: everything works except writing to files.</li>
+        <li><strong>Your settings are safe</strong> &ndash; Every change to your settings keeps a dated backup; updates keep your settings, and factory settings are one command away.</li>
     </ul>
 
     <hr>
 
     <!-- ============================================================ -->
-    <!-- 2. INSTALLATION                                               -->
-    <!-- ============================================================ -->
-
-    <h2>2. Installation and Uninstallation</h2>
+    <h2 id="s2">2. Getting started</h2>
 
     <h3>2.1 Installation</h3>
     <ol>
-        <li>Ensure Autodesk Inventor is closed.</li>
-        <li>Run the provided setup file (<code>GLR_Advanced_BOM_Viewer.msi</code>).</li>
-        <li>Follow the simple on-screen instructions. The installation does not require administrator privileges.</li>
-        <li><strong>First-Time Run Security Alert:</strong> The first time you start Autodesk Inventor after installation, you may see an <strong>"Add-in Manager Security Alert"</strong> because the add-in is not digitally signed by Autodesk. This is normal. Click <strong>"Launch Add-in Manager"</strong>.</li>
-        <li><strong>Enable the Add-in:</strong> In the Add-In Manager window:
-            <ul>
-                <li>Find <strong>"Advanced BOM Viewer"</strong> in the list.</li>
-                <li>Ensure the <strong>"Loaded/Unloaded"</strong> and <strong>"Load Automatically"</strong> check boxes are ticked.</li>
-                <li>Click <strong>OK</strong>.</li>
-            </ul>
-        </li>
-        <li>The add-in is now ready. You will find its launch button in the <strong>"Assemble"</strong> tab of the ribbon, inside the <strong>"GLR Tools"</strong> panel.</li>
+        <li>Close Autodesk Inventor.</li>
+        <li>Run the setup file and follow the instructions. Administrator rights are not required.</li>
+        <li>The first time Inventor starts, it may show an <strong>Add-in Manager Security Alert</strong> because the add-in is not signed by Autodesk. Click <strong>Launch Add-in Manager</strong>, select <strong>Advanced BOM Viewer</strong>, tick <strong>Loaded/Unloaded</strong> and <strong>Load Automatically</strong>, then click <strong>OK</strong>.</li>
     </ol>
+    <p>To uninstall, close Inventor and remove <strong>GLR Advanced BOM Viewer</strong> from Windows <strong>Apps &amp; Features</strong>. To disable it temporarily, untick <strong>Loaded/Unloaded</strong> in the Add-In Manager (<code>Tools</code> tab &rarr; <code>Add-Ins</code>).</p>
 
-    <h3>2.2 Uninstallation</h3>
-    <p>To uninstall this plug-in, first exit Autodesk Inventor. Then, you can either:</p>
+    <h3>2.2 Opening the viewer</h3>
     <ul>
-        <li>Re-run the installer (<code>.msi</code> file) and select the "Uninstall" option.</li>
-        <li>OR, go to the Windows Control Panel &rarr; <strong>Programs and Features</strong> (or Apps &amp; Features), find "GLR Advanced BOM Viewer" in the list, and choose "Uninstall".</li>
+        <li>With an assembly open, click the BOM Viewer button in the <strong>Assemble</strong> tab, <strong>GLR Tools</strong> panel.</li>
+        <li>There is one viewer window. Clicking the button again brings it to the front.</li>
+        <li>The window closes by itself when you switch to another document or close the assembly; open it again for the new assembly.</li>
+        <li>If the active model state takes its BOM from another model state, BOM Viewer asks whether to activate that one.</li>
     </ul>
 
-    <h3>2.3 Temporarily Disabling the Add-in</h3>
-    <p>You can unload the plug-in without uninstalling it by opening the <strong>Add-In Manager</strong> in Inventor (<code>Tools</code> tab &rarr; <code>Add-Ins</code>) and unchecking the "Loaded/Unloaded" box for the "Advanced BOM Viewer". You may need to restart Inventor for the change to take full effect.</p>
+    <h3>2.3 The window</h3>
+    <ul>
+        <li><strong>Command bar:</strong> <code>Export...</code>, <code>Dashboard</code>, <code>Checker</code>, <code>Multi-level</code>, <code>Presets</code>, <code>Update Mass</code>, <code>↻</code> (refresh), <code>Compare</code>, <code>3D Heatmap</code>, <code>?</code> (this guide).</li>
+        <li><strong>View row:</strong> the three views, <code>Show Primary</code>, <code>Group by</code> and <code>Edit Config</code>.</li>
+        <li><strong>Search row:</strong> search, <code>Show only issues</code>, <code>Isolate rows</code>, <code>Clear Filters</code>.</li>
+        <li><strong>Grid</strong> in the middle, optional <strong>Dashboard</strong> below it, and the <strong>status bar</strong> with the sums at the bottom.</li>
+    </ul>
+
+    <h3>2.4 Read-Only and Editor modes</h3>
+    <ul>
+        <li>In the Configuration Editor (tab 8, <strong>Editing Mode</strong>) choose <strong>Editor</strong> to edit, or <strong>Read-Only</strong> if you only need to review the BOM.</li>
+        <li>In Read-Only mode only the commands that write to your files are off. Search, filters, grouping, presets, visibility commands, BOM Compare, validation and export all keep working.</li>
+        <li>BOM Viewer also runs in <strong>Inventor Read-only Mode</strong>: editing is always off there.</li>
+    </ul>
+
+    <h3>2.5 Keeping the view up to date</h3>
+    <ul>
+        <li>Changes made with BOM Viewer appear at once. Changes made in Inventor (iProperties, components added or suppressed, model states) are picked up automatically.</li>
+        <li>When the data must be read again, the status bar says <em>View out of date</em> and <code>↻</code> turns green: click it.</li>
+        <li>In tab 8 of the Configuration Editor you can set <strong>Synchronization</strong> to <em>Manual</em> if you prefer to refresh yourself.</li>
+    </ul>
 
     <hr>
 
     <!-- ============================================================ -->
-    <!-- 3. USER INTERFACE GUIDE                                       -->
-    <!-- ============================================================ -->
-
-    <h2>3. User Interface Guide</h2>
-    <p>The main window is divided into several areas: the Top Bar, the Data Grid, the Compare Bar (when active), the Dashboard, and the Status Bar.</p>
-    
-    <h3>3.1 The Top Bar: Your Control Panel</h3>
-
-    <h4>Main Actions</h4>
+    <h2 id="s3">3. The three views</h2>
     <ul>
-        <li><strong>Export ▾</strong> – Opens the <strong>Export Options</strong> window to generate a report. You can choose between Excel (.xlsx), HTML, and CSV formats. In Compare Mode, CSV is automatically disabled to preserve the visual integrity of comparison data. For Excel and HTML exports, the file includes a complete header with report context, your Inventor User Name, and any optional notes you add. Thumbnails are embedded in Excel and HTML.</li>
-        <li><strong>Dashboard</strong> – Toggles the visibility of the interactive Dashboard panel at the bottom of the window. Use this to perform visual analysis of your BOM data.</li>
-        <li><strong>Checker</strong> – Enables or disables the validation system. When enabled, cells that violate defined rules are highlighted in orange. You can also filter the grid to show only non-compliant rows using the <strong>⚠️ Show only issues</strong> checkbox.</li>
-        <li><strong>Compare</strong> – Enters or exits BOM Compare mode. When active, the interface switches to a dedicated compare view where you can compare different configurations of your assembly (see Section 3.3).</li>
-        <li><strong>Update Mass</strong> – Forces a recalculation of physical properties (Mass, Area, Volume) for all documents <strong>currently visible in the grid</strong>. The button is <strong>enabled only when there are visible documents whose physical properties are not yet cached or are out of date</strong>.</li>
-        <li><strong>[↻] (Refresh)</strong> – Manually refreshes the data from Inventor, clearing all caches and reloading the current view. Use this when you suspect the view is out of sync.</li>
-        <li><strong>[?] (Help)</strong> – Opens this user guide.</li>
+        <li><strong>Model Data</strong> &ndash; the assembly as in the model browser, like Inventor's Model Data: Phantom and Reference components are real rows with their children. One row per file under each parent.</li>
+        <li><strong>Structured</strong> &ndash; the BOM by levels. Phantom components are dissolved and their children move up; Reference components are left out. Tick <strong>Multi-level</strong> to open sub-assemblies as a tree.</li>
+        <li><strong>Parts Only</strong> &ndash; every part in a flat list. Purchased and Inseparable assemblies count as one row.</li>
+    </ul>
+    <p>Each view remembers its own columns, widths, filters, search, grouping, sorting and open branches. Switching view is immediate, and the components selected in the model stay selected.</p>
+
+    <h4>Show Primary</h4>
+    <p>Available in Structured: shows the main assembly as the first row, with its iProperties. You can edit them and the rules check them.</p>
+
+    <h4>Tree views (Structured Multi-level and Model Data)</h4>
+    <ul>
+        <li>Click the <code>+</code> / <code>-</code> box to open or close a branch. <strong>Shift+click</strong> a closed branch to open all the levels below it.</li>
+        <li>Right-click the box for <em>Expand All Children</em> and <em>Collapse Sub-assembly</em>.</li>
+        <li>A branch shows the BOM of one occurrence of the sub-assembly, as in Inventor.</li>
+        <li>In tree views grouping is fixed (rows follow Inventor's structure), column filters and the Dashboard are not available, and the sums add up only the selected rows.</li>
     </ul>
 
-    <h4>Presets Menu</h4>
-    <ul>
-        <li><strong>Save Current Preset...</strong> – Saves the current layout (column order, width, visibility), active filters, grouping, and search criteria as a named preset.</li>
-        <li><strong>★ Default Template</strong> – Applies the global default column layout template to the active document.</li>
-        <li><strong>Manage Saved Presets...</strong> – Opens the folder containing your saved presets for renaming or deletion.</li>
-        <li><strong>Redefine Default Template</strong> – Saves the current layouts (widths, order, visibility) of ALL three views as the new global default template for new files.</li>
-        <li><strong>Restore Default Template</strong> – Resets the default template to factory settings and applies it to the current document immediately.</li>
-    </ul>
-
-    <h4>View Mode</h4>
-    <ul>
-        <li><strong>Structured:</strong> Displays the BOM, keeping sub-assemblies as single rows. Shows the primary assembly row at the top if <strong>Show Primary</strong> is checked.</li>
-        <li><strong>Parts Only:</strong> Displays a flat list of all individual parts.</li>
-        <li><strong>From Selection:</strong> An "Inspector" mode. The grid only shows components currently selected in Inventor. Selection highlighting is done with a green highlight set without modifying the Inventor selection set.</li>
-        <li><strong>Show Primary:</strong> When checked (only available in Structured view), displays the top-level assembly as the first row, with a dark background and bold text. When the Checker is active, this row is also subject to validation rules.</li>
-        <li><strong>Multi-level:</strong> When checked (only available in Structured view), enables the hierarchical tree with expandable/collapsible sub-assemblies. The grouping ComboBox is automatically locked to <code>Part Number</code> to maintain the tree structure integrity.</li>
-        <li><strong>⚠️ Show only issues:</strong> When the Checker is enabled, this checkbox filters the grid to show only rows that contain at least one validation error. The status bar indicates the number of issues found.</li>
-    </ul>
-
-    <h4>Group By</h4>
-    <ul>
-        <li><strong>Group By ComboBox:</strong> Select a property (e.g., <code>Part Number</code>, <code>Material</code>, <code>Stock Number</code>) to group all rows that share the same value. The ComboBox is automatically locked when Multi-level is active.</li>
-        <li><strong>Group Settings Button (⚙):</strong> Opens the <strong>Multi-level Grouping</strong> dialog where you can configure up to 3 grouping criteria in a cascading hierarchy. For example, group by <code>Material</code> &rarr; <code>Thickness</code> &rarr; <code>Part Number</code>. The button shows a red border when multi-level grouping is active.</li>
-        <li><strong>Reset Button (📥):</strong> Resets grouping to <code>Part Number</code> (the default). The button is visible only when grouping is not set to the default.</li>
-    </ul>
-
-    <h4>Advanced Search Bar</h4>
-    <p>Allows powerful and specific filtering of the grid. It consists of three parts:</p>
-    <ul>
-        <li><strong>Property Selector:</strong> Choose which column to search within, or select <code>(All Columns)</code> for a global search. The list is automatically populated with all visible text columns.</li>
-        <li><strong>Condition Selector:</strong> Defines the search type. The available operators adapt dynamically based on the selected column type:
-            <ul>
-                <li><strong>Text columns:</strong> <code>Contains</code>, <code>Starts With</code>, <code>Ends With</code>, <code>Exact Match</code>, <code>Is Empty</code></li>
-                <li><strong>Number columns:</strong> <code>Equals (=)</code>, <code>Greater Than (&gt;)</code>, <code>Less Than (&lt;)</code>, <code>Greater or Equal (&gt;=)</code>, <code>Less or Equal (&lt;=)</code></li>
-                <li><strong>Date columns:</strong> <code>On Date</code>, <code>Before</code>, <code>After</code></li>
-                <li><strong>Boolean columns:</strong> <code>Is True</code>, <code>Is False</code></li>
-            </ul>
-        </li>
-        <li><strong>Search Text Field:</strong> Enter your search term. The grid updates in real-time as you type. Press <strong>Enter</strong> or click the magnifying glass icon (🔍) to apply.
-            <ul>
-                <li><strong>Multi-Value Search:</strong> Search for multiple values at once by separating them with a semicolon (<strong>;</strong>). For example, <code>bolt;nut</code> finds all rows containing either "bolt" OR "nut".</li>
-                <li><strong>Blank Values:</strong> Use the token <code>&lt;BLANK&gt;</code> to search for empty cells.</li>
-                <li><strong>Numerical Search:</strong> Values are automatically extracted from formatted strings (e.g., <code>15.40 kg</code> is compared as <code>15.40</code>).</li>
-                <li><strong>Date Search:</strong> Supports the current system date format (e.g., <code>dd/MM/yyyy</code>). A calendar popup appears when you click the text box with a Date column selected.</li>
-            </ul>
-        </li>
-        <li><strong>Match Navigation (◀/▶):</strong> When a search is active, the navigation controls appear. They allow you to cycle through matching rows. Each match is automatically revealed (expanding the tree if necessary in Multi-level mode) and highlighted in the grid.</li>
-        <li><strong>Search Button (🔍/📥):</strong> The button icon changes dynamically:
-            <ul>
-                <li><strong>🔍 (Magnifying Glass):</strong> No active search, ready to execute.</li>
-                <li><strong>📥 (Funnel):</strong> Search is active. Click to reset the search.</li>
-            </ul>
-        </li>
-    </ul>
-
-    <h4>Clear Filters</h4>
-    <p>Instantly clears all applied filters, including search, column filters, grouping, "Show only issues", and (in Compare Mode) all comparison status filters. The button is enabled only when at least one filter is active.</p>
-
-    <h4>Edit Config</h4>
-    <p>Opens the <strong>Configuration Editor</strong> (see Section 5). This is where you manage the global property pool, view ordering, value lists, validation rules, and unit settings.</p>
-
-    <h3>3.2 The Data Grid: Your Workspace</h3>
-
-    <h4>Visual Feedback</h4>
-    <ul>
-        <li><strong>Filter Border:</strong> When any filter (search, column filter, grouping, or "Show only issues") is active, the <strong>border of the grid panel turns red</strong>. If the "Show only issues" filter is active, the border turns <strong>orange</strong>, providing an at-a-glance indication that the data is filtered.</li>
-        <li><strong>Row Header Indicator:</strong> The row header shows a small triangular marker on the active row when the grid is focused.</li>
-    </ul>
-
-    <h4>Hierarchical Tree (Structured + Multi-level)</h4>
-    <ul>
-        <li><strong>Expand/Collapse:</strong> Click the triangular arrow (▶/▼) next to any sub-assembly row to expand or collapse its children. The tree structure is automatically rebuilt when data changes.</li>
-        <li><strong>Differentiated Icons:</strong> Each row displays a dedicated icon based on the component type:
-            <ul>
-    <li><strong>Part</strong> – Standard part (.ipt)</li>
-    <li><strong>Sheet Metal</strong> – Sheet metal part</li>
-    <li><strong>Assembly</strong> – Standard assembly (.iam)</li>
-    <li><strong>Weldment</strong> – Weldment assembly</li>
-    <li><strong>Virtual</strong> – Virtual component</li>
-    <li><strong>Content Center</strong> – Content Center part</li>
-    <li><strong>iPart</strong> – iPart Member (.ipt)</li>
-    <li><strong>iAssembly</strong> – iAssembly Member (.iam)</li>
-    <li><strong>AnyCAD</strong> – AnyCAD reference (with grey frame)</li>
-    <li><strong>Group</strong> – Grouped component row</li>
-</ul>
-        </li>
-        <li><strong>Promote Badge (⬆):</strong> A vector-drawn overlay next to the file icon visually flags promoted components. Hovering over the badge displays a tooltip showing which parent assembly it belongs to (with support for <code>*Varies*</code> in case of multiple parent groupings).</li>
-        <li><strong>Cloud Frame:</strong> AnyCAD reference components are displayed with a thin grey frame around their icon.</li>
-    </ul>
-
-    <h4>Sorting</h4>
-    <ul>
-        <li><strong>Single Column Sort:</strong> Click any column header to sort the data in ascending or descending order. The column header shows a triangle (▲/▼) indicating the sort direction.</li>
-        <li><strong>Multi-Column Sort:</strong> Hold <code>Shift</code> and click additional column headers to define secondary and tertiary sorting hierarchies. Sorted columns display priority labels (e.g., <code>1▲</code>, <code>2▼</code>, <code>3▲</code>) directly in the header.</li>
-        <li><strong>Natural Sorting:</strong> Sorting uses a natural alphanumeric algorithm (e.g., <code>Part2</code> comes before <code>Part10</code>).</li>
-        <li><strong>Tree-Aware Sorting (Multi-level):</strong> When Multi-level is active, sorting preserves the hierarchical structure. The tree is sorted recursively, with each level of the tree sorted independently while maintaining parent-child relationships.</li>
-    </ul>
-
-    <h4>Column Filters (∇ / 📥)</h4>
-    <ul>
-        <li>Click the funnel icon (∇) in a column header to open a filter menu. The menu shows a list of all unique values in that column.</li>
-        <li>Select the desired values from the list and click <strong>"Apply"</strong>. The icon changes to a filled funnel (📥) to indicate that a filter is active on that column.</li>
-        <li>Filters support multi-selection and the <code>&lt;BLANK&gt;</code> token for empty values.</li>
-        <li>Click <strong>"Clear"</strong> to remove the filter from that column.</li>
-    </ul>
-
-    <h4>Selection Synchronization</h4>
-    <ul>
-        <li>Selecting rows in the grid automatically selects the corresponding occurrences in Inventor.</li>
-        <li>Selecting components in Inventor highlights the corresponding rows in the grid.</li>
-        <li>When a row contains multiple occurrences but only a subset is selected in Inventor, the row border becomes <strong>grey</strong> (partial selection). When all occurrences are selected, the border is <strong>blue</strong> (full selection).</li>
-        <li>In <strong>From Selection</strong> mode, the grid does not modify the Inventor selection set; instead, it uses a green highlight set to visually indicate the selected components.</li>
-        <li>The current cell is highlighted with a <strong>cyan border</strong>. In Multi-level mode, all cells in the same column of selected rows show a subtle cyan overlay for easy visual tracking.</li>
-    </ul>
-
-    <h4>Inline Editing</h4>
-    <p>Many cells are editable directly in the grid. Editable properties include:</p>
-    <ul>
-        <li>Design Tracking, Summary Information, Document Summary Information, and User Defined iProperties.</li>
-        <li><strong>Material</strong> (for part documents and virtual components).</li>
-        <li><strong>Appearance</strong> (for part documents; also provides a <strong>Clear Override</strong> option to reset to the material-based appearance).</li>
-        <li><strong>BOM Structure</strong> (Normal, Phantom, Purchased, Reference, Inseparable).</li>
-        <li><strong>Revit Category</strong> (for CAD/BIM interoperability).</li>
-        <li>When a group of rows (<code>&lt;Varies&gt;</code>) is edited, you will be prompted to confirm overwriting all files in the group.</li>
-    </ul>
-
-    <h4>Value Lists (Dropdowns)</h4>
-    <p>If a property has been associated with a Value List (see Section 5.3), a <strong>▼</strong> button appears when editing that cell. Click it to select a value from a filterable dropdown. This works for standard iProperties, custom user-defined properties, Material, Appearance, BOM Structure, and Revit Category.</p>
-
-    <h4>Inventor Formulas</h4>
-    <ul>
-        <li><strong>Reading Formulas:</strong> Double-clicking a cell that contains an Inventor formula (e.g., <code>=&lt;Description&gt;</code>) loads the underlying expression into the text box instead of the evaluated static text.</li>
-        <li><strong>Writing Formulas:</strong> Enter a value starting with <code>=</code> (e.g., <code>=&lt;PartNumber&gt;</code>) to write a formula expression. The system evaluates it and displays the result in the cell while preserving the formula.</li>
-        <li><strong>Formula Protection:</strong> When performing text casing transformations (UPPERCASE or Title Case) on a selection that contains formula-based cells, an interactive dialog allows you to exclude those cells and protect your parametric links.</li>
-        <li><strong>Anti-Overwrite Safeguard:</strong> When performing a Bulk Update on a heterogeneous selection, the input box is pre-populated with <code>&lt;Varies&gt;</code>. If you click OK without modifying this text, the system intercepts the action and aborts the save.</li>
-    </ul>
-
-    <h4>Context Menus (Right-Click)</h4>
-
-    <p><strong>On a Column Header:</strong></p>
-    <ul>
-        <li><strong>Remove Column:</strong> Hides the selected column from the current view. The column can be re-added later.</li>
-        <li><strong>Add Column...</strong> Opens a dialog to select a property from the global pool and add it as a new column to the current view. The column is inserted after the clicked column.</li>
-        <li><strong>Edit Column Configuration...</strong> Provides a convenient shortcut to open the full Configuration Editor.</li>
-        <li><strong>Add/Edit/Clear Filter:</strong> Opens the column filter menu.</li>
-        <li><strong>Sort Ascending/Descending:</strong> Sets or adds to the multi-column sort.</li>
-        <li><strong>Clear All Sorting:</strong> Removes all active sort keys.</li>
-    </ul>
-
-    <p><strong>On a Grid Row or Cell:</strong></p>
-    <ul>
-        <li><strong>Copy:</strong> Copies the value of the clicked cell (or all selected cells in the same column) to the clipboard. If the cell contains a formula, the raw expression is copied.</li>
-        <li><strong>Paste:</strong> Pastes the clipboard content into the clicked cell (or across multiple selected cells). Supports both single-value replication and staggered multi-value paste.</li>
-        <li><strong>Edit properties...</strong> Opens an input dialog for the selected property. Supports:
-            <ul>
-                <li><strong>Text fields:</strong> Free text input with automatic formula detection.</li>
-                <li><strong>Number fields:</strong> Numeric validation with decimal separator auto-correction.</li>
-                <li><strong>Date fields:</strong> Calendar popup with "Clear" button.</li>
-                <li><strong>Boolean fields:</strong> True/False dropdown.</li>
-                <li><strong>List fields:</strong> Filterable dropdown (Material, Appearance, BOM Structure, Revit Category, Value Lists).</li>
-            </ul>
-        </li>
-        <li><strong>Capitalize:</strong> Converts the selected text to UPPERCASE. When applied to a group (<code>&lt;Varies&gt;</code>), propagates the transformation to all components in the group.</li>
-        <li><strong>Title Case:</strong> Converts the selected text to Title Case. When applied to a group (<code>&lt;Varies&gt;</code>), propagates the transformation to all components in the group.</li>
-        <li><strong>Open Selected:</strong> Opens the component file in Inventor (available for single-row selection only; disabled for groups, virtual components, and cloud-referenced files).</li>
-        <li><strong>Show Selected / Hide Selected / Isolate Selected:</strong> Controls visibility of the corresponding components in the model.</li>
-        <li><strong>Clear Selection:</strong> Deselects all rows in the grid and all components in the model.</li>
-        <li><strong>Expand All Children / Collapse Sub-assembly:</strong> Available in Multi-level mode for rows that have children.</li>
-        <li><strong>iProperties...</strong> Opens the native Inventor iProperties dialog for the selected component(s).</li>
-    </ul>
-
-    <h4>Keyboard Shortcuts</h4>
-    <ul>
-        <li><strong>Ctrl+C:</strong> Copy the current cell value (or all selected values in the same column).</li>
-        <li><strong>Ctrl+V:</strong> Paste from clipboard into the current cell (or across multiple selected cells).</li>
-        <li><strong>Delete:</strong> Clear the current cell value. Protected cells (e.g., Appearance, Material, BOM Structure, Revit Category) cannot be deleted.</li>
-        <li><strong>↑/↓:</strong> Navigate rows while preserving the current column.</li>
-        <li><strong>←/→:</strong> Navigate columns while preserving the current row.</li>
-        <li><strong>Shift+Click (column header):</strong> Add to multi-column sort.</li>
-        <li><strong>Enter:</strong> In edit mode, confirms the edit and commits the change.</li>
-    </ul>
-
-    <h4>Recognition of BOM Overrides</h4>
-    <ul>
-        <li><strong>Quantity Overrides:</strong> Quantities that have been manually overridden in Inventor (displayed in blue in the standard BOM) are shown in the <strong><em>italic underlined</em></strong> style in the grid.</li>
-        <li><strong>BOM Structure Overrides:</strong> When a component's BOM Structure is changed (e.g., from Normal to Reference), the cell displays the new value in <strong><em>italic</em></strong> and, when hovered, shows a tooltip indicating the <strong>Native Value</strong> (e.g., <code>Default: Normal</code>).</li>
-    </ul>
-
-    <h4>Unit Integrity &lt;Error&gt;</h4>
-    <p>In <strong>Strict Mode</strong>, if a group contains discordant units (e.g., a mix of mm and inches, or kg and lb), the total columns will display <strong>&lt;Error&gt;</strong>. This is a safety feature to prevent incorrect mathematical sums. To resolve this, simply enable a conversion mode in Tab 7 of the Configuration Editor to normalize all values.</p>
-
-    <h4>Validation Highlighting</h4>
-    <p>When the Checker is enabled:</p>
-    <ul>
-        <li>Cells that fail validation rules are shown with an <strong>orange background</strong> and bold black text.</li>
-        <li>Hovering over an invalid cell displays a tooltip with the error message (e.g., "Part Number is required").</li>
-        <li>Rows that contain any invalid cell are considered non-compliant. You can filter to show only these rows using the <strong>⚠️ Show only issues</strong> checkbox.</li>
-    </ul>
-
-    <h3>3.3 The Compare Mode</h3>
-
-    <p>BOM Compare mode allows you to visually compare different configurations of your assembly. The Compare button in the Top Bar toggles this mode.</p>
-
-    <h4>Entering Compare Mode</h4>
-    <ul>
-        <li>Click the <strong>Compare</strong> button. The interface switches to a dedicated compare view.</li>
-        <li>The current active configuration (Model State or iAssembly Member) becomes the <strong>Baseline</strong> (State A).</li>
-        <li>The Dashboard and Checker are automatically disabled during Compare to ensure a clean comparison environment.</li>
-    </ul>
-
-    <h4>Selecting a Target</h4>
-    <ul>
-        <li><strong>Local Model States:</strong> Select from the dropdown list of available Model States of the active assembly.</li>
-        <li><strong>Local iAssembly Members:</strong> Select from the dropdown list of available Members in the iAssembly Factory table.</li>
-        <li><strong>External Assembly:</strong> Select <code>&lt;Browse external IAM...&gt;</code> and choose an assembly file (<code>.iam</code>) on disk. The tool opens it silently in the background and reads its configurations.</li>
-        <li>The target selection is displayed in the compare bar.</li>
-    </ul>
-
-    <h4>Executing a Comparison</h4>
-    <ul>
-        <li>Click the <strong>Play (▶)</strong> button to execute the comparison.</li>
-        <li>The tool scans both configurations in RAM and calculates the differences.</li>
-        <li>Results are displayed in the grid with semantic colors.</li>
-        <li>The Play button turns into a <strong>✓</strong> when the comparison is up-to-date.</li>
-    </ul>
-
-    <h4>Comparison Results</h4>
-    <ul>
-        <li><strong>🔴 Removed (Red &amp; Strikethrough):</strong> Components that existed in the Baseline but are missing in the Target.</li>
-        <li><strong>🔵 Added (Blue):</strong> Components newly inserted in the Target.</li>
-        <li><strong>🔵 Modified (Bold Blue/Cyan):</strong> Components present in both but with changed properties. Hovering over a modified cell displays the previous baseline value in a tooltip.</li>
-        <li><strong>⚫ Unchanged (Grey):</strong> Components that remained identical between both versions.</li>
-    </ul>
-
-    <h4>Interactive Status Filters</h4>
-    <p>Use the checkboxes in the compare bar to instantly filter and isolate specific categories:</p>
-    <ul>
-        <li><strong>Added</strong> – Show only added components.</li>
-        <li><strong>Removed</strong> – Show only removed components.</li>
-        <li><strong>Modified</strong> – Show only modified components.</li>
-        <li><strong>Unchanged</strong> – Show only unchanged components.</li>
-    </ul>
-
-    <h4>Compare Export</h4>
-    <ul>
-        <li>Export to <strong>Excel (.xlsx)</strong> or <strong>HTML (.html)</strong> preserves all semantic colors and comments.</li>
-        <li>In Excel, modified cells contain comments showing the previous baseline values.</li>
-        <li><strong>CSV export is automatically disabled</strong> in Compare Mode to protect the visual integrity of your comparison data.</li>
-    </ul>
-
-    <h4>Exiting Compare Mode</h4>
-    <ul>
-        <li>Click the <strong>Exit Compare</strong> button (the Compare button now shows "Exit Compare").</li>
-        <li>The tool restores the Baseline configuration in Inventor.</li>
-        <li>The Dashboard and Checker are re-enabled, and the standard view is restored.</li>
-        <li>The AutoSave mechanism protects your ferial layout: if you close the window using the Windows "X" button while Compare Mode is active, the system bypasses AutoSave to prevent the temporary comparison layout from overwriting your standard settings.</li>
-    </ul>
-
-    <h3>3.4 The Status Bar: Real-Time Information</h3>
-    <p>The bar at the bottom of the window provides contextual status messages, such as:</p>
-    <ul>
-        <li>Number of rows displayed.</li>
-        <li>Current filter summary.</li>
-        <li>Number of search matches found.</li>
-        <li>Number of validation issues detected.</li>
-        <li>Warning messages (e.g., "View out of date").</li>
-        <li>In Compare Mode: detailed row change information when a row is selected.</li>
-    </ul>
-    <p>The status bar also displays a live summary of selected rows, the active cell value, and any formula expression associated with the cell.</p>
-
-    <h3>3.5 The Dashboard: Visual Analysis</h3>
-    <p>The Dashboard provides an interactive graphical representation of your Bill of Materials data. It is directly linked to the data visible in the grid, respecting all active filters and groupings.</p>
-
-    <h4>Activating the Dashboard</h4>
-    <p>Click the <strong><code>Dashboard</code></strong> button in the top bar. A new panel will appear below the data grid. The splitter position is remembered between sessions.</p>
-
-    <h4>Analyze Property</h4>
-    <p>Use this dropdown to select the property you want to visualize. The list is organized to show categorical properties (like <code>Material</code>, <code>BOM Structure</code>) first, followed by numerical properties (like <code>Total Mass</code>, <code>Total Quantity</code>).</p>
-
-    <h4>Mathematical Truth</h4>
-    <p>For numerical properties, values are automatically <strong>normalized to a consistent unit</strong> (e.g., all masses in kg, all lengths in cm) before being displayed. A 1 kg part will always look twice as large as a 0.5 kg part, regardless of whether the grid displays kg, lb, or grams.</p>
-
-    <h4>Interactive Selection</h4>
-    <p><strong>Click on a slice of the pie chart</strong> to:</p>
-    <ul>
-        <li>Instantly select all corresponding rows in the data grid.</li>
-        <li>Instantly select all corresponding components in the Inventor 3D model.</li>
-    </ul>
-    <p>This allows you to quickly identify and locate components based on their properties (e.g., "select all Steel parts", "find the heaviest components").</p>
-
-    <h4>Show Labels</h4>
-    <p>The <strong>Show Labels</strong> checkbox toggles the visibility of value labels on the pie chart. When unchecked, the chart displays only the colored slices for a cleaner view.</p>
-
-    <h4>Smart Aggregation</h4>
-    <p>If the number of categories exceeds the limit (8 for pie), the chart automatically aggregates the smallest categories into an <strong>"Others"</strong> slice.</p>
-
-    <hr>
-
-    <!-- ============================================================ -->
-    <!-- 4. TYPICAL WORKFLOWS                                          -->
-    <!-- ============================================================ -->
-
-    <h2>4. Typical Workflows (Use Cases)</h2>
-    
-    <div class="workflow-example">
-        <strong>"I want a report of all screws and bolts."</strong>
-        <ol>
-            <li>Select the <code>Parts Only</code> view.</li>
-            <li>In the search bar, type <code>screw;bolt</code> and press Enter.</li>
-            <li>Click <code>Export...</code> and choose Excel or HTML.</li>
-        </ol>
-    </div>
-
-    <div class="workflow-example">
-        <strong>"I want to find all 'Purchased' components missing the 'Vendor' property."</strong>
-        <ol>
-            <li>Select the <code>Structured</code> view.</li>
-            <li>Filter the <code>BOM Structure</code> column to show only "Purchased".</li>
-            <li>Define a Validation Rule on the <code>Vendor</code> property with a condition: <code>BOM Structure</code> Equals "Purchased" &rarr; Check: <code>Required</code>.</li>
-            <li>Enable the Checker. Invalid cells will appear in orange.</li>
-            <li>Check <strong>⚠️ Show only issues</strong> to isolate the problematic rows.</li>
-        </ol>
-    </div>
-
-    <div class="workflow-example">
-        <strong>"I want to identify the heaviest components, regardless of their document units."</strong>
-        <ol>
-            <li>Click the <strong><code>Dashboard</code></strong> button to open the analysis panel.</li>
-            <li>From the <code>Analyze Property</code> dropdown, select <strong><code>Total Mass</code></strong>.</li>
-            <li>The chart will immediately show the distribution. Thanks to <strong>internal normalization</strong>, components using 'lb' and 'kg' are compared correctly.</li>
-            <li>Click on the largest slice to select and highlight the heaviest component(s) in both the grid and the 3D model.</li>
-        </ol>
-    </div>
-
-    <div class="workflow-example">
-        <strong>"I want to compare two design revisions of my assembly."</strong>
-        <ol>
-            <li>Click the <strong>Compare</strong> button in the Top Bar.</li>
-            <li>Select the target Model State from the dropdown.</li>
-            <li>Click <strong>Play (▶)</strong> to run the comparison.</li>
-            <li>Use the checkboxes (Added, Removed, Modified, Unchanged) to isolate specific categories.</li>
-            <li>Click <strong>Export</strong> to generate a comparison report in Excel or HTML.</li>
-            <li>Click <strong>Exit Compare</strong> to return to the standard view.</li>
-        </ol>
-    </div>
-
-    <div class="workflow-example">
-        <strong>"I want to group sheet metal parts by thickness and material."</strong>
-        <ol>
-            <li>Select the <code>Parts Only</code> view.</li>
-            <li>Click the <strong>Group Settings (⚙)</strong> button next to the Group By dropdown.</li>
-            <li>In the multi-level grouping dialog, add <code>Material</code> as the first key and <code>Thickness</code> as the second key.</li>
-            <li>Click OK. The BOM is now grouped by Material &rarr; Thickness.</li>
-            <li>Use the <strong>📥</strong> reset button to return to <code>Part Number</code> grouping.</li>
-        </ol>
-    </div>
-
-    <div class="workflow-example">
-        <strong>"I need a documented report for a supplier, including my notes and numbered rows."</strong>
-        <ol>
-            <li>Prepare the data using filters and grouping.</li>
-            <li>Click <code>Export...</code> to open the Export Options dialog.</li>
-            <li>In the <strong>Include numbering</strong> section, customize the label, start value, increment, and delimiter as needed.</li>
-            <li>In the <strong>Notes &amp; Comments</strong> field, add your remarks (e.g., "BOM for quotation QF-1234").</li>
-            <li>Choose Excel (.xlsx) or HTML format. The exported file will include a header with your notes, the view context, active filters, and your User Name.</li>
-        </ol>
-    </div>
-
-    <div class="workflow-example">
-        <strong>"I want to ensure all Part Numbers follow a standard format and are Uppercase."</strong>
-        <ol>
-            <li>Open <code>Edit Config</code> and go to the <strong>Validation Rules</strong> tab.</li>
-            <li>Select the <code>Part Number</code> property.</li>
-            <li>Add a Check of type <strong>Pattern</strong> (Regex: <code>^[A-Z]{3}-\d{5}$</code>) and a Check of type <strong>Upper Case</strong>.</li>
-            <li>Save and enable the <strong>Checker</strong>. Cells that do not match the format or casing will turn orange.</li>
-        </ol>
-    </div>
-
-    <hr>
-
-    <!-- ============================================================ -->
-    <!-- 5. ADVANCED CONFIGURATION                                     -->
-    <!-- ============================================================ -->
-
-    <h2 id="section5">5. Advanced Configuration (<code>Edit Config</code>)</h2>
-    <p>The Configuration Editor gives you complete control over the information displayed, validation rules, value lists, and unit preferences. It is organized into 7 tabs.</p>
-
-    <h3>5.1 Tab 1: Property Management</h3>
-    <p>This is the main tab where you define the "pool" of all properties available to the add-in.</p>
-
-    <h4>Main Grid</h4>
-    <ul>
-        <li><strong>Enabled:</strong> A property must be checked here to be available in any view. Disabling a property that is used in validation rules will automatically disable those rules.</li>
-        <li><strong>Label:</strong> The name that will appear in the column header.</li>
-        <li><strong>Data Source:</strong> Defines the origin of the property:
-            <ul>
-                <li><strong>Standard:</strong> System properties (Design Tracking, Summary Info, Document Summary Info).</li>
-                <li><strong>Custom:</strong> User Defined iProperties.</li>
-            </ul>
-        </li>
-        <li><strong>Property:</strong> For standard properties, choose from a list; for custom properties, type the exact iProperty name.</li>
-        <li><strong>Data Type:</strong> For custom properties, select the appropriate type (Text, Number, Date, Boolean).</li>
-        <li><strong>Use in...:</strong> Check the boxes to determine in which views the property will be visible <strong>by default</strong>.</li>
-        <li><strong>Analytics:</strong> Check this box to make the property available for analysis in the Dashboard. Only properties that are meaningful to visualize (like Material, Mass, Quantity) should be enabled.</li>
-        <li><strong>Protected:</strong> Check this box to mark the column as read-only in the grid. Protected columns display a lock icon (<code>🔒</code>) and a light grey background. This is designed to safeguard fields automatically populated by iLogic rules.</li>
-    </ul>
-
-    <h4>Special System Properties</h4>
-    <ul>
-        <li><strong>Protected Properties:</strong> Some properties like <code>FileName</code>, <code>PartNumber</code>, <code>Thumbnail</code>, <code>Quantity</code>, and physical properties (<code>ItemMass</code>, <code>TotalMass</code>, etc.) are protected and cannot be disabled or deleted.</li>
-        <li><strong>Model State:</strong> When enabled, displays the current Model State name (e.g., <code>[Primary]</code>, <code>coarse</code>). It is read-only and protected.</li>
-    </ul>
-
-    <h4>Adding a New Property</h4>
-    <ul>
-        <li>Click <strong>Add New Property</strong>. The new property is created as a "Standard" property by default.</li>
-        <li>Select the Data Source (<strong>Standard</strong> or <strong>Custom</strong>) in the Details panel.</li>
-        <li>For Standard properties, select the desired property from the dropdown.</li>
-        <li>For Custom properties, type the exact iProperty name (must match the iProperty name in Inventor).</li>
-        <li>Set the Data Type (Text, Number, Date, Boolean) as needed.</li>
-        <li>Assign a Label and check the views where it should appear.</li>
-        <li>The property is saved when you click <strong>Save</strong> or <strong>Save and Close</strong>.</li>
-    </ul>
-
-    <h4>Deleting a Property</h4>
-    <ul>
-        <li>Select the property in the grid and click <strong>Remove Property</strong>.</li>
-        <li>If the property is used in validation rules, you will be warned and asked to confirm deletion.</li>
-    </ul>
-
-    <h4>Mass Operations</h4>
-    <ul>
-        <li>Right-click a column header (Enabled, Use in Structured, Use in Parts Only, etc.) to select <strong>Select All</strong> or <strong>Deselect All</strong> for that column.</li>
-    </ul>
-
-    <h3>5.2 Tabs 2, 3, 4: View Ordering</h3>
-    <p>Each of these tabs (<code>'Structured' View</code>, <code>'Parts Only' View</code>, <code>'From Selection' View</code>) controls the <strong>column order</strong> for its corresponding view.</p>
-    <ul>
-        <li>The list shows all properties that are enabled and marked for use in that view.</li>
-        <li>Use the <strong><code>↑ Up</code></strong> and <strong><code>↓ Down</code></strong> buttons to move a selected property.</li>
-        <li>The order in the list determines the left-to-right order of columns in the grid.</li>
-    </ul>
-
-    <h3>5.3 Tab 5: Value Lists</h3>
-    <p>Value Lists allow you to define predefined dropdown values for any property. They are used both in the grid editing (dropdown button) and in validation rules (e.g., "In List" condition).</p>
-
-    <h4>Creating a List</h4>
-    <ul>
-        <li>Click <strong>New List</strong>.</li>
-        <li>Enter a name for the list.</li>
-        <li>The list appears in the left panel. Use <strong>Add</strong> to insert values (multiple values can be added at once by separating them with semicolons).</li>
-    </ul>
-
-    <h4>Modifying a List</h4>
-    <ul>
-        <li>Select a list from the left panel. The right panel shows its values.</li>
-        <li>Use the buttons to:
-            <ul>
-                <li><strong>Rename</strong> – Change the list name.</li>
-                <li><strong>Delete</strong> – Remove the list (with confirmation).</li>
-                <li><strong>Add</strong> – Insert new values.</li>
-                <li><strong>Edit</strong> – Modify the selected value.</li>
-                <li><strong>Delete</strong> – Remove the selected value.</li>
-                <li><strong>▲ / ▼</strong> – Reorder values.</li>
-            </ul>
-        </li>
-    </ul>
-
-    <h4>Associating a List with a Property</h4>
-    <ul>
-        <li>In the bottom table <strong>"Property Associations Mapping"</strong>, each property shows a dropdown where you can assign a Value List.</li>
-        <li>Once assigned, editing that property in the main grid will show a dropdown with the list's values.</li>
-        <li>The association is saved in the global configuration.</li>
-    </ul>
-
-    <h4>Status Icons in Associations Grid</h4>
-    <ul>
-        <li><strong>● (Green Dot):</strong> Property is actively mapped to a valid Value List.</li>
-        <li><strong>○ (Empty Circle):</strong> Property is available for mapping (no list assigned).</li>
-        <li><strong>⚠ (Warning):</strong> Conflict: property is disabled but has a list assigned, or the associated list has been deleted.</li>
-        <li><strong>🔴 (Red Circle):</strong> Property is disabled.</li>
-        <li><strong>⚪ (Grey Circle):</strong> Property is system-protected or incompatible with Value Lists.</li>
-    </ul>
-
-    <h3>5.4 Tab 6: Validation Rules</h3>
-    <p>Validation rules allow you to define automatic checks on the data entered in the cells. When the <strong>Checker</strong> is enabled (main toolbar button), cells that violate a rule are highlighted in orange and show an error message on mouse hover.</p>
-
-    <h4>Rule Structure</h4>
-    <p>A rule consists of two main parts:</p>
-    <ul>
-        <li><strong>Conditions (optional):</strong> Determine <em>when</em> the rule should be applied. If no conditions are specified, the rule always applies to the target property.</li>
-        <li><strong>Checks (mandatory):</strong> Define <em>what</em> makes the value non-compliant. Each rule must have at least one check.</li>
-    </ul>
-
-    <h4>5.4.1 Conditions – "When to apply the rule"</h4>
-    <p>Conditions allow you to restrict validation to specific contexts. For example, you may want to check that a material is present only for "Sheet Metal" components.</p>
-    <p>Each condition compares the value of <strong>another property</strong> (not the target) using an operator. Multiple conditions can be combined using the logical operators <strong>AND</strong> (all must be true) or <strong>OR</strong> (at least one true).</p>
-
-    <p><strong>Operators available for conditions:</strong></p>
-    <ul>
-        <li><code>Equals</code> / <code>Not Equals</code> – case-insensitive equality.</li>
-        <li><code>Is Empty</code> / <code>Is Not Empty</code> – checks whether the property is empty.</li>
-        <li><code>Contains</code> / <code>Not Contains</code> – checks for the presence of a substring.</li>
-        <li><code>Starts With</code> / <code>Ends With</code> – checks prefix/suffix.</li>
-        <li><code>In List</code> – checks if the value belongs to a <strong>Value List</strong> (see Section 5.3).</li>
-    </ul>
-
-    <h4>5.4.2 Checks – "What makes the value invalid"</h4>
-    <p>Checks are the actual validations on the target property's value. A rule can have multiple checks: <strong>all of them must pass</strong> for the cell to be considered valid.</p>
-
-    <p><strong>Available check types:</strong></p>
-    <ul>
-        <li><code>Required</code> – the value cannot be empty or whitespace only.</li>
-        <li><code>Min Length</code> / <code>Max Length</code> – enforces a minimum/maximum number of characters.</li>
-        <li><code>In List</code> / <code>Not In List</code> – the value must (or must not) belong to a predefined Value List.</li>
-        <li><code>Pattern</code> – checks that the value matches a regular expression (Regex). The <strong>...</strong> button opens the <strong>Pattern Builder</strong> to create the regex visually.</li>
-        <li><code>Upper Case</code> / <code>Lower Case</code> – forces the value to be entirely uppercase or lowercase.</li>
-    </ul>
-
-    <h4>Error Messages</h4>
-    <p>Each check can have a <strong>custom error message</strong>. If left empty, the system automatically generates a descriptive message (e.g., "Part Number is required."). Error messages are displayed in the grid when the Checker is enabled.</p>
-
-    <h4>Managing Rules in the Editor</h4>
-
-    <p><strong>The three-panel layout:</strong></p>
-    <ul>
-        <li><strong>Left Panel:</strong> List of properties with their rule status and rule count.</li>
-        <li><strong>Center Panel:</strong> List of rules for the selected property.</li>
-        <li><strong>Right Panel:</strong> Rule editor (conditions + checks).</li>
-    </ul>
-
-    <p><strong>Status Icons in Properties Grid (Left Panel):</strong></p>
-    <ul>
-        <li><strong>● (Green Dot):</strong> All rules for this property are active and healthy.</li>
-        <li><strong>◐ (Half Green Dot):</strong> Some rules are active and healthy, some are disabled.</li>
-        <li><strong>○ (Empty Circle):</strong> All rules are manually disabled.</li>
-        <li><strong>⚪ (Grey Circle):</strong> No rules defined for this property.</li>
-        <li><strong>⚠ (Warning):</strong> Some rules have issues (no checks, broken list references).</li>
-        <li><strong>🔴 (Red Circle):</strong> Property is disabled in Tab 1.</li>
-    </ul>
-
-    <p><strong>Status Icons in Rules Grid (Center Panel):</strong></p>
-    <ul>
-        <li><strong>● (Green Dot):</strong> Rule is active and valid (all references exist).</li>
-        <li><strong>⚠ (Warning):</strong> Rule has issues (no checks, broken list references).</li>
-        <li><strong>🔴 (Red Circle):</strong> Rule is manually disabled.</li>
-        <li><strong>❓ (Question Mark):</strong> Unsaved draft rule.</li>
-    </ul>
-
-    <p><strong>Creating a Rule:</strong></p>
-    <ul>
-        <li>Select a property in the left panel.</li>
-        <li>Click <strong>New Rule</strong> in the center panel.</li>
-        <li>Enter a name for the rule.</li>
-        <li>Add conditions (optional) and checks (required).</li>
-        <li>Click <strong>Save Rule</strong> to persist it.</li>
-        <li>The rule is immediately active (if Enabled) and will be evaluated by the Checker.</li>
-    </ul>
-
-    <p><strong>Editing a Rule:</strong></p>
-    <ul>
-        <li>Select a rule in the center panel. Its details appear in the right panel.</li>
-        <li>Modify conditions, checks, or the Enabled state.</li>
-        <li>Click <strong>Save Rule</strong> to persist changes.</li>
-        <li>Click <strong>Cancel</strong> to discard changes and revert to the saved version.</li>
-    </ul>
-
-    <p><strong>Deleting a Rule:</strong></p>
-    <ul>
-        <li>Select a rule in the center panel.</li>
-        <li>Click <strong>Delete</strong> and confirm.</li>
-    </ul>
-
-    <h4>Practical Examples</h4>
-
-    <div class="workflow-example">
-        <strong>Example 1 – Standardized Naming (Pattern + Case)</strong><br>
-        Goal: "Descriptions must start with 'FRAME-', be all uppercase, and follow a numeric pattern XXXX."<br>
+    <div class="beyond">
+        <div class="beyond-title">Beyond Inventor</div>
         <ul>
-            <li><strong>Check 1:</strong> <code>Starts With</code>: "FRAME-"</li>
-            <li><strong>Check 2:</strong> <code>Upper Case</code></li>
-            <li><strong>Check 3:</strong> <code>Pattern</code> (Regex): <code>^FRAME-\d{4}$</code></li>
+            <li>The views are built from the model: Structured and Parts Only work even if they are not enabled in the assembly BOM.</li>
+            <li>The tree opens branch by branch and remembers the open branches of each view.</li>
         </ul>
     </div>
 
-    <div class="workflow-example">
-        <strong>Example 2 – Conditional Procurement Data</strong><br>
-        Goal: "If a part is 'Purchased', it MUST have a 'Vendor' and 'Stock Number'."<br>
-        <ul>
-            <li><strong>Rule A (Vendor):</strong> Condition: <code>BOM Structure</code> Equals "Purchased" &rarr; Check: <code>Required</code>.</li>
-            <li><strong>Rule B (Stock Number):</strong> Condition: <code>BOM Structure</code> Equals "Purchased" &rarr; Check: <code>Required</code>.</li>
-        </ul>
-    </div>
+    <hr>
 
-    <div class="workflow-example">
-        <strong>Example 3 – List Validation</strong><br>
-        Goal: "Material must be one of the approved values."<br>
-        <ul>
-            <li>Create a Value List called "ApprovedMaterials" with values: <code>Steel, Aluminum, Stainless Steel</code>.</li>
-            <li>In Tab 5, associate the <code>Material</code> property with the "ApprovedMaterials" list.</li>
-            <li>In Tab 6, create a rule on <code>Material</code> with Check: <code>In List</code> (select "ApprovedMaterials").</li>
-        </ul>
-    </div>
+    <!-- ============================================================ -->
+    <h2 id="s4">4. The grid</h2>
 
-    <h3>5.5 Tab 7: Unit Settings</h3>
-    <p>Control how physical quantities (Length and Mass) are displayed in the grid. These settings are global and remembered between sessions.</p>
-
-    <h4>Length Mode</h4>
+    <h3>4.1 Columns</h3>
     <ul>
-        <li><code>Strict</code> – displays values in the original unit of each document (e.g., mm, cm, in).</li>
-        <li><code>ToDocumentUnit</code> – converts all length values to the unit of the top-level assembly document (e.g., if the assembly is in mm, all lengths are shown in mm).</li>
-        <li><code>ToCustomUnit</code> – converts all length values to a user-defined unit (select from mm, cm, m, in, ft).</li>
+        <li>Right-click a column header for <em>Remove Column</em>, <em>Add Column...</em>, filters, sorting and <em>Edit Column Configuration...</em></li>
+        <li><strong>Add Column...</strong> lists the properties not yet shown, with a search box and multiple selection. New columns are inserted where you clicked. The <code>+</code> button creates a new custom iProperty on the spot.</li>
+        <li>Drag a header to move a column; drag its border to resize it. Double-click the border of the first column in tree views to fit indents and icons.</li>
+        <li>Header icons: 🔒 protected column, ☰ column with a value list, ▲▼ sorting, funnel for filters. An italic light-blue header means the values are converted to another unit.</li>
     </ul>
 
-    <h4>Mass Mode</h4>
-    <p>Same logic as Length, with units kg, g, slug, lb.</p>
-
-    <h4>Decimal Places</h4>
-    <p>Choose the number of decimal places (0 to 8) for Length, Mass, Area, and Volume. The preview shows the formatting (e.g., "3,123" for 3 decimals).</p>
-
-    <h4>How Unit Conversion Works</h4>
+    <h3>4.2 Icons and thumbnails</h3>
     <ul>
-        <li>Unit conversion applies to columns such as <code>Base Quantity</code>, <code>Total Quantity</code>, <code>Item Mass</code>, <code>Total Mass</code>, <code>Item Area</code>, <code>Item Volume</code>, etc.</li>
-        <li>The Dashboard also uses normalized units for consistent chart proportions.</li>
-        <li>In <strong>Strict Mode</strong>, discordant units within a group are flagged with <code>&lt;Error&gt;</code> to prevent incorrect mathematical sums.</li>
-        <li>When a unit conflict is detected in a group, a tooltip indicates the conflicting units (e.g., "Mixed unit or incompatible type detected in this group: mm / in").</li>
+        <li>The first column shows the type of component: part, sheet metal, assembly, weldment, Cable &amp; Harness, tube &amp; pipe, frame, virtual component, group of different files.</li>
+        <li>A blue arrow ⬆ marks a <em>promoted</em> component (moved up from a Phantom); the tooltip names its parent. A grey frame marks files referenced from the cloud.</li>
+        <li>The <code>Thumbnail</code> column shows the image of each file. Thumbnails appear all together and are reused when you reopen the window, until the file changes.</li>
+        <li>BOM Structure uses Inventor's own icons, in the cell and in its list.</li>
+        <li>Virtual parts inside a Cable &amp; Harness assembly have their own icons (wire, cable, ribbon, splice, terminal...).</li>
+    </ul>
+
+    <h3>4.3 Sorting</h3>
+    <ul>
+        <li>Click a header to sort; click again to reverse. <strong>Shift+click</strong> more headers to sort by several columns (<code>1▲</code>, <code>2▼</code>...).</li>
+        <li>Sorting is natural (<code>Part2</code> before <code>Part10</code>). In tree views each level is sorted inside its parent; the main assembly stays on top.</li>
+    </ul>
+
+    <h3>4.4 Selection with the model</h3>
+    <ul>
+        <li>Select rows to select their components in the model; select in the model or browser to select the rows. In tree views the branches open to show them.</li>
+        <li>A <strong>grey row border</strong> means only some occurrences of the row are selected in the model; a blue border means all of them. Click the row to select them all.</li>
+        <li>If a selected component is not shown by the view (for example hidden by a filter), the status bar says <em>N excluded from BOM view</em>.</li>
+        <li>Arrow keys keep the current column; Shift or Ctrl + arrows extend the selection.</li>
+    </ul>
+
+    <h3>4.5 Row menu (right-click)</h3>
+    <ul>
+        <li><strong>Copy</strong>, <strong>Paste</strong>, <strong>Edit properties...</strong>, <strong>Uppercase</strong>, <strong>Title Case</strong> &ndash; see <a href="#s7">Editing</a>.</li>
+        <li><strong>Open Selected</strong> &ndash; opens the file of one row.</li>
+        <li><strong>Isolate Selected</strong>, <strong>Show Selected</strong>, <strong>Hide Selected</strong>, <strong>Undo Isolate</strong>, <strong>Show All</strong>, <strong>Hide All</strong>, <strong>Clear Selection</strong>. The command names show how many occurrences they affect.</li>
+        <li><strong>iProperties...</strong> &ndash; Inventor's iProperties of the selected components, or of the main assembly from its row.</li>
+    </ul>
+    <div class="beyond">
+        <div class="beyond-title">Beyond Inventor</div>
+        <ul>
+            <li><strong>Isolate Selected</strong> also shows selected components that were hidden, then isolates them, in a single Undo step. Inventor isolates only the visible ones.</li>
+            <li>If you selected only some occurrences of a row in the model, the visibility commands act on just those (<em>1 of 4 occurrences</em>).</li>
+        </ul>
+    </div>
+
+    <h3>4.6 Status bar and sums</h3>
+    <ul>
+        <li>The status bar shows the number of rows, the selection (<em>N rows selected (M occurrences in model)</em>), the active cell value, its formula and, for a locked cell, the reason.</li>
+        <li>The active preset is shown as <em>Layout: name</em> (see <a href="#s14">Presets</a>).</li>
+        <li><strong>Sum Items</strong>, <strong>Sum Qty</strong> and <strong>Sum Mass</strong> work like the Excel status bar: they add up the selected rows, or all rows shown when nothing is selected (only selected rows in tree views). The main assembly row is not counted.</li>
+        <li><code>&lt;Error&gt;</code> means the values cannot be added correctly (pieces mixed with lengths, or different units); <code>N/A</code> means some masses are missing: click <em>Sum Mass</em> to calculate them.</li>
+        <li>Cell tooltips explain what you see: why a cell does not comply, the values behind <code>&lt;Varies&gt;</code>, unit conflicts, overrides.</li>
     </ul>
 
     <hr>
 
     <!-- ============================================================ -->
-    <!-- 6. ADDITIONAL INFORMATION                                     -->
-    <!-- ============================================================ -->
+    <h2 id="s5">5. Search and filters</h2>
 
-    <h2>6. Additional Information</h2>
+    <h3>5.1 Search</h3>
+    <ul>
+        <li>Choose a column (or <code>(All Columns)</code>, the columns shown) and an operator, type the value and press <strong>Enter</strong>. While the search is active the grid follows every change you make.</li>
+        <li>The operators depend on the column: <em>Contains, Starts With, Ends With, Exact Match, Is Empty</em> for text; <em>=, &gt;, &lt;, &gt;=, &lt;=</em> for numbers; <em>On Date, Before, After</em> for dates; <em>Is True, Is False</em> for yes/no.</li>
+        <li>In text columns, separate several values with <code>;</code> (<code>bolt;nut</code>) and use <code>&lt;BLANK&gt;</code> for empty cells. The text found is highlighted.</li>
+        <li>Type dates in your Windows date format (shown in the empty box), or pick them with the calendar button next to the box.</li>
+        <li>The red funnel button means a search is active: click it to remove it.</li>
+        <li>In tree views the search keeps the rows found plus their parents, so you always see where a component sits; the branches open by themselves. Use <code>◀</code> <code>▶</code> to jump between results: <em>N of M</em>.</li>
+    </ul>
 
-    <div class="note">
-        <p><strong>Disclaimer:</strong> This is a pre-release version intended for testing and evaluation purposes. It will expire on <strong>December 31st, 2026</strong>.</p>
-        <p>Please <strong>DO NOT</strong> use it in a production environment. The author cannot be held responsible for any data loss or other issues.</p>
+    <h3>5.2 Column filters</h3>
+    <ul>
+        <li>Click the funnel in a header to filter like in Excel: tick the values to keep, <code>&lt;BLANK&gt;</code> for empty cells, then <strong>Apply</strong>.</li>
+        <li>Filters on different columns work together; the list of each filter shows only the values left by the other filters (<em>Values limited by: ...</em>).</li>
+        <li>Column filters are available in Structured (single level) and Parts Only.</li>
+    </ul>
+
+    <h3>5.3 Isolate rows</h3>
+    <p>Select some components (in the grid or in the model) and tick <strong>Isolate rows</strong>: only their rows stay, and the list does not change while you click other rows. Untick it to see everything again. The status bar shows <em>Isolated: N occurrences</em>.</p>
+
+    <h3>5.4 Clear Filters and the grid frame</h3>
+    <ul>
+        <li><strong>Clear Filters</strong> removes search, column filters, Show only issues, Isolate rows and custom grouping in one click; its tooltip lists what it will clear.</li>
+        <li>A colored frame around the grid tells you that something is filtered: red for filters and search, orange for Show only issues, blue for Isolate rows alone.</li>
+    </ul>
+
+    <div class="beyond">
+        <div class="beyond-title">Beyond Inventor</div>
+        <ul>
+            <li>Inventor's BOM editor has no filters; here you search and filter any column, also in the tree, while the model stays usable.</li>
+        </ul>
     </div>
 
-    <h3>6.1 Support Information</h3>
-    <p>For questions, feedback, bug reports, or enhancement requests, please contact us via email:<br>
-    <span class="contact-info">gianluca.larocca.gm@gmail.com</span></p>
+    <hr>
 
-    <h3>6.2 Version History</h3>
+    <!-- ============================================================ -->
+    <h2 id="s6">6. Grouping</h2>
+    <ul>
+        <li><strong>Group by</strong> joins the rows that share a value. Part Number is the default; File Name is always available, plus any visible column that can be grouped.</li>
+        <li>The <strong>Group Settings</strong> button next to it lets you group by up to three properties in cascade, for example <code>Material</code> &gt; <code>Thickness</code> &gt; <code>Part Number</code>.</li>
+        <li>When the components of a row have different values, the cell shows <code>&lt;Varies&gt;</code> and the tooltip lists every value, empty ones included. Values that differ only in letter case count as the same value.</li>
+        <li>Grouping never mixes different articles: a Part Number whose files disagree on a grouping property stays on its own row.</li>
+        <li>A group row containing a protected file is locked as a whole.</li>
+        <li>In tree views grouping is fixed: by Part Number in Structured Multi-level, one row per file under each parent in Model Data.</li>
+    </ul>
+    <div class="beyond">
+        <div class="beyond-title">Beyond Inventor</div>
+        <ul>
+            <li>Inventor groups only in the drawing parts list. Here you group by any property, in cascade, right in the viewer.</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="s7">7. Editing</h2>
+    <p>Editing requires the <strong>Editor</strong> mode (see <a href="#s2">2.4</a>). Every command is one step in Inventor's Undo list, named <em>BOM Viewer: Edit 'Description'</em>, <em>BOM Viewer: Paste 'Description'</em> and so on; nothing is added when nothing changes.</p>
+
+    <h3>7.1 In the cell</h3>
+    <ul>
+        <li>Double-click, press <code>F2</code> or start typing; press <strong>Enter</strong> to write.</li>
+        <li>Columns with a value list, Material, Appearance, BOM Structure, Revit Category and yes/no show a drop-down; date columns open a calendar with <strong>Clear</strong>. Number columns accept only numbers.</li>
+        <li>A group row is one row: the value is written to every file in it.</li>
+        <li>To change several rows, use Paste or Edit properties: with several rows selected the cell does not open for editing.</li>
+    </ul>
+
+    <h3>7.2 Copy and Paste</h3>
+    <ul>
+        <li><strong>Ctrl+C</strong> copies the cell, or the values of the column for all selected rows, one per line. A formula is copied as a formula.</li>
+        <li><strong>Ctrl+V</strong> pastes one value into all selected rows, or a list of values (for example a column copied from Excel) into as many selected rows, in order.</li>
+        <li>Paste writes where it can: for each locked row it asks whether to skip it and continue (<em>Apply to all remaining cases</em> answers for all of them).</li>
+    </ul>
+
+    <h3>7.3 Delete, Edit properties, Uppercase and Title Case</h3>
+    <ul>
+        <li><strong>Delete</strong> empties the cell. Material, Appearance, BOM Structure and Revit Category cannot be emptied.</li>
+        <li><strong>Edit properties...</strong> (right-click) gives one value to all selected rows, with the right input: list, calendar or text box. It is off if any selected cell is locked, and when the main assembly row is selected together with other rows (Paste can write both).</li>
+        <li><strong>Uppercase</strong> and <strong>Title Case</strong> convert the text of the selected rows in text columns.</li>
+    </ul>
+
+    <h3>7.4 Formulas</h3>
+    <ul>
+        <li>A value starting with <code>=</code>, such as <code>=&lt;Part Number&gt;-&lt;Revision&gt;</code>, is written as an Inventor formula in text columns.</li>
+        <li>While editing you see the formula, in the grid its result. Before a formula is replaced you are asked.</li>
+    </ul>
+
+    <h3>7.5 Locked cells and values</h3>
+    <ul>
+        <li>Locked cells are grey; click one and the status bar tells you why: Read-Only mode, read-only or library file, Content Center, iPart/iAssembly member, protected column, data to refresh.</li>
+        <li>A value outside the column's value list is written only after you confirm it. Numbers, dates and yes/no values are checked before writing.</li>
+        <li>Validation rules never stop you: the value is written and the cell shows whether it complies.</li>
+        <li>If some files cannot be written, the others are written and a message lists what was skipped.</li>
+        <li>No editing during BOM Compare.</li>
+    </ul>
+    <div class="beyond">
+        <div class="beyond-title">Beyond Inventor</div>
+        <ul>
+            <li>Edit many rows at once, paste a column from Excel, fix letter case in one click, while the model stays open.</li>
+            <li>Library and Content Center files, members and protected columns cannot be overwritten by mistake.</li>
+            <li>Formulas are visible and protected.</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="s8">8. Material, Appearance, BOM Structure, Revit Category</h2>
+    <ul>
+        <li>These columns accept only valid values: pick them from the list. A value typed or pasted with a different spelling is corrected for you; an invalid one is never written.</li>
+        <li><strong>Material</strong> and <strong>Appearance</strong> list the active Inventor library plus the assets already in the file, like Inventor. Change the material of many parts at once with Paste or Edit properties: masses update immediately.</li>
+        <li>When you change the material, the appearance follows it, unless you had chosen an appearance yourself: that one is kept.</li>
+        <li>Choose <em>(Clear Appearance Override)</em>, the first item of the Appearance list, to bring parts back to the appearance of their material.</li>
+        <li>Weldments and virtual components have a material too, in the same column. Assemblies and model state members cannot get a material from the grid.</li>
+        <li><strong>BOM Structure</strong> shows Inventor's icons. Phantom and Reference reshape the BOM and the grid follows at once. For model states, iParts and iAssemblies the value is written for all members.</li>
+        <li><strong>Revit Category</strong> offers the Revit categories and is written for all model states of the file.</li>
+        <li>A BOM Structure overridden in the assembly is shown in <em><u>italic underline</u></em>; the tooltip shows the file's own value.</li>
+    </ul>
+    <div class="beyond">
+        <div class="beyond-title">Beyond Inventor</div>
+        <ul>
+            <li>Material, appearance and BOM Structure on many components at once, with a single Undo step.</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="s9">9. Quantities, masses and units</h2>
+    <ul>
+        <li>Quantities follow Inventor's rules: Phantom children move up with the Phantom quantity, Reference components are left out, Purchased and Inseparable assemblies count as one row, and quantity overrides are read from the assembly BOM.</li>
+        <li>Overridden quantities are shown in <em><u>italic underline</u></em>, with the tooltip <em>Quantity is overridden in Inventor Assembly BOM.</em></li>
+        <li>Columns: <em>Item Qty</em>, <em>Total Qty</em>, <em>Base Qty</em>, <em>Item / Total Mass</em>, <em>Item / Total Area</em>, <em>Item / Total Volume</em>, also for group rows. <em>Total Mass</em> is the real mass of the occurrences, as in Inventor.</li>
+        <li>A mass that Inventor has not updated shows <code>N/A</code>, never an old value. <strong>Update Mass</strong> calculates only the files shown that need it, without marking them as modified.</li>
+        <li>In the Configuration Editor (tab 7) choose how lengths and masses are shown: in each file's unit (<em>Strict</em>), in the main assembly's unit, or in a unit of your choice, with your number of decimals.</li>
+        <li>When values cannot be added correctly (pieces with lengths, or different units in <em>Strict</em>), the cell shows <code>&lt;Error&gt;</code> and the tooltip explains why.</li>
+    </ul>
+    <div class="beyond">
+        <div class="beyond-title">Beyond Inventor</div>
+        <ul>
+            <li>Masses, areas and volumes of every row in one place, with quick sums of the selected rows.</li>
+            <li>Units under your control, and a clear warning instead of a wrong total.</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="s10">10. Validation rules and Show only issues</h2>
+    <ul>
+        <li>Rules check your iProperties automatically: required fields, allowed values (value lists), length, format (patterns) and letter case. You write them once in the Configuration Editor (tab 6) and they apply to every assembly.</li>
+        <li>A rule applies to all components, or only to those that meet its conditions (AND / OR), for example <em>BOM Structure equals Purchased</em>.</li>
+        <li>Turn validation on or off with the <strong>Checker</strong> button. A non-compliant cell is highlighted; hover over it to read why.</li>
+        <li>On a group row, the tooltip tells you how many files do not comply and which ones. Rules on <em>Item Qty</em>, <em>Total Qty</em>, <em>Total Mass</em>, <em>Total Area</em> and <em>Total Volume</em> check the row total.</li>
+        <li>Only the columns shown in the grid are checked.</li>
+        <li>Tick <strong>Show only issues</strong> to keep only the non-compliant rows; the box shows how many there are. It is a work list: rows you fix stay until you turn the filter off and on again or refresh.</li>
+        <li>In tree views, Show only issues searches the whole assembly and opens the branches that contain problems; turning it off closes them again.</li>
+    </ul>
+    <div class="beyond">
+        <div class="beyond-title">Beyond Inventor</div>
+        <ul>
+            <li>Company rules without iLogic programming, with a list of the problems to work through and their color in the 3D model (see <a href="#s11">3D Heatmap</a>).</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="s11">11. Dashboard and 3D Heatmap</h2>
+
+    <h3>11.1 Dashboard</h3>
+    <ul>
+        <li>Click <strong>Dashboard</strong> to open a pie chart below the grid. In <em>Analyze Property</em> choose one of the properties marked <em>Analytics</em> in the Configuration Editor.</li>
+        <li>The chart counts the rows shown: search and filters change it. The seven largest values get their own slice; the others are joined in <em>Others</em>.</li>
+        <li>Each value keeps its color: the same color appears in the chart, in a strip on the left of each row and in the 3D model.</li>
+        <li>Click a slice to select its rows and components; click it again to clear the selection.</li>
+        <li>Tick <strong>3D Heatmap</strong> in the panel to color the model with the chart colors.</li>
+        <li>Right-click the chart to copy or save its image, or to show, hide or isolate the components of a slice.</li>
+    </ul>
+
+    <h3>11.2 3D Heatmap</h3>
+    <ul>
+        <li>The <strong>3D Heatmap</strong> button colors the model by any visible column, or by <em>Validation Issues</em> (compliant and non-compliant parts). <em>Clear Heatmap</em> removes the colors.</li>
+        <li>The colors follow your work: they update after edits, visibility changes, open branches, model state changes and shape changes.</li>
+        <li>The colors are temporary graphics: your files are never changed and Inventor's Undo list stays clean.</li>
+        <li>Hidden, suppressed, reference and virtual components are not colored, nor are parts with more bodies than the limit set in the Configuration Editor (tab 9). Opacity is set there too.</li>
+    </ul>
+    <p>Dashboard and 3D Heatmap are not available in Model Data and during BOM Compare; the Dashboard is also off in Structured Multi-level.</p>
+    <div class="beyond">
+        <div class="beyond-title">Beyond Inventor</div>
+        <ul>
+            <li>Colors by property value, stable and with the same meaning in chart, grid and model, without touching the appearances of your files.</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="s12">12. BOM Compare</h2>
+    <ul>
+        <li>Click <strong>Compare</strong> (in Structured or Parts Only) to compare the open assembly (<strong>Base</strong>) with a <strong>Target</strong>: another model state, another member of the same iAssembly, or another assembly file (<em>&lt;Browse external IAM...&gt;</em>).</li>
+        <li>Choose the Target and click <strong>Play (▶)</strong>. The model always shows the Base, your files are never changed and Inventor's Undo list stays clean.</li>
+        <li><strong>Added</strong> rows are blue, <strong>Removed</strong> rows red and struck through, changed cells of <strong>Modified</strong> rows blue and bold. Hover a changed cell to see the previous value; a value emptied in the Target is shown struck through.</li>
+        <li>Use the <strong>Added</strong>, <strong>Removed</strong>, <strong>Modified</strong> and <strong>Unchanged</strong> boxes to show only the rows you need. Differences in letter case only are not reported.</li>
+        <li>If you change the model in Inventor during the comparison, Play turns green: click it to compare again.</li>
+        <li>Members that have not been generated are never created by BOM Compare: generate them in Inventor first.</li>
+        <li>Editing, Dashboard, Checker and 3D Heatmap are off until you click <strong>Exit Compare</strong>. BOM Compare also works in Inventor Read-only Mode.</li>
+    </ul>
+    <div class="beyond">
+        <div class="beyond-title">Beyond Inventor</div>
+        <ul>
+            <li>Inventor has no BOM comparison. Here you see what was added, removed or changed, value by value, and you can export it.</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="s13">13. Export</h2>
+    <ul>
+        <li>Click <strong>Export...</strong> and tick one or more formats: <strong>Excel</strong>, <strong>HTML</strong>, <strong>CSV</strong>. You get one file per format.</li>
+        <li><strong>All rows</strong> (default): the file contains the complete BOM, with all branches open; searches and filters of the grid are not applied. <strong>Only rows shown in the grid</strong> exports exactly what you see.</li>
+        <li>The columns are the ones shown in the grid, in the same order.</li>
+        <li>Add your <strong>notes</strong> and optional <strong>item numbering</strong> (label, start value, increment, delimiter; 1.2.3 by level in tree views). The file header shows assembly, view, filters, date and author.</li>
+        <li><strong>Excel</strong> and <strong>HTML</strong> keep the colors, thumbnails and tooltips of the grid and include filters to work on the file. In Excel numbers and dates are real values and tree levels are grouped with + and -. The HTML file opens in any browser and prints the whole table with the header on every page.</li>
+        <li><strong>CSV</strong> contains the data only, with a <em>Level</em> column in tree views.</li>
+        <li>With the Checker on, an <em>Issues</em> column tells which rows comply. During BOM Compare you can export the comparison to Excel or HTML, with a <em>Change</em> column.</li>
+    </ul>
+    <div class="beyond">
+        <div class="beyond-title">Beyond Inventor</div>
+        <ul>
+            <li>Reports ready to send, with the look of the grid, thumbnails, notes and filters, in several formats at once.</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="s14">14. Presets, Home and session memory</h2>
+    <ul>
+        <li>A <strong>preset</strong> is a snapshot of all three views: columns, widths, filters, search, grouping and Multi-level.</li>
+        <li><strong>Presets &gt; Save Preset...</strong> suggests a name: press Enter to save. A name already in use is saved as <em>name (1)</em>.</li>
+        <li>Click a preset in the Presets menu to load it in one step. The status bar shows <em>Layout: name</em>, and <em>(Modified)</em> after you change columns, filters or grouping.</li>
+        <li><strong>Home</strong> is your starting layout (columns only), used for assemblies opened for the first time. <strong>Presets &gt; Home</strong> restores it and clears filters, search and grouping.</li>
+        <li>In <strong>Manage Presets...</strong> you rename, update, delete and load presets and set your Home; changes are saved with <em>Apply</em> or <em>Save and Close</em>.</li>
+        <li>BOM Viewer remembers how you left each assembly, including the active preset. Choose how in the Configuration Editor, tab 8, <em>Session Persistence</em>.</li>
+        <li>If a preset uses a property that no longer exists, it still loads and the status bar lists what is missing.</li>
+    </ul>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="s15">15. Configuration Editor</h2>
+    <p>Click <strong>Edit Config</strong> to set up BOM Viewer for all your assemblies. Changes are saved only with <em>Apply</em> or <em>Save and Close</em>; <em>Cancel</em> leaves everything as it was. A pencil marks the fields you changed.</p>
+
     <table>
         <thead>
-            <tr>
-                <th>Version</th>
-                <th>Description</th>
-            </tr>
+            <tr><th style="width: 32%;">Tab</th><th>What you set</th></tr>
         </thead>
         <tbody>
-            <tr>
-                <td>6.0</td>
-                <td><strong>Major Release:</strong> Intelligent contextual editing with upfront editability verification, formula protection, and expression reader. Ultra-compact hierarchical tree with differentiated icons, Promote badges, and parent traceability. Smart export numbering with custom label, start, increment, and delimiter (persisted). Advanced BOM Compare module supporting local Model States, iAssembly Members, and external assemblies with color-coded results and interactive filters. Real-time non-modal synchronization, multi-level grouping (up to 3 criteria), composite sorting with priority labels, protected columns with lock icons, Revit Category support, per-document layouts, and multiple stability enhancements.</td>
-            </tr>
-            <tr>
-                <td>5.0</td>
-                <td>Advanced BOM Compare module, real-time sync, multi-level grouping, composite sorting, protected columns, Revit Category integration, per-document layouts, clipboard actions, formula support, live search with precise highlighting.</td>
-            </tr>
-            <tr>
-                <td>4.0</td>
-                <td>Hierarchical fallback grouping, unit integrity with <code>&lt;Error&gt;</code> detection, normalized Dashboard charts, automatic Config Healing, tooltips for BOM overrides, new validation operators (Not Contains, Upper/Lower Case).</td>
-            </tr>
-            <tr>
-                <td>3.2</td>
-                <td>Interactive Dashboard, enhanced configuration options for analytics, improved preset loading logic.</td>
-            </tr>
-            <tr>
-                <td>3.1</td>
-                <td>Enhanced export with contextual headers and user notes in Excel and HTML formats.</td>
-            </tr>
-            <tr>
-                <td>3.0</td>
-                <td>Major release with enhanced performance and Inventor 2026, 2027 support.</td>
-            </tr>
+            <tr><td>1. Property Management</td><td>The properties available as columns: standard and custom iProperties, labels, types, the views that show them, <em>Analytics</em> (Dashboard) and <em>Protected</em> (read-only in the grid, for example fields filled by iLogic).</td></tr>
+            <tr><td>2-4. Model Data / Structured / Parts Only View</td><td>The column order of each view.</td></tr>
+            <tr><td>5. Value Lists</td><td>Lists of values for the cell drop-downs and for rules, and which property uses which list.</td></tr>
+            <tr><td>6. Validation Rules</td><td>Rules for each property: optional conditions and at least one check, with your own error message if you like.</td></tr>
+            <tr><td>7. Unit Settings</td><td>Units and decimals of lengths and masses.</td></tr>
+            <tr><td>8. Application Settings</td><td>Editing Mode (Read-Only / Editor), Session Persistence, Synchronization, and <em>Restore All Factory Settings...</em></td></tr>
+            <tr><td>9. Color Settings</td><td>Grid colors, chart palette and 3D Heatmap opacity and limits.</td></tr>
         </tbody>
     </table>
 
-    <h3>6.3 Known Issues</h3>
+    <h4>Pattern Builder</h4>
+    <p>In a <em>Pattern</em> check, double-click the value (or click <code>...</code>) to open the Pattern Builder: choose a type (Starts With, Contains, Numeric Only, Part Number Format, Wildcard...), type a value and test it on your own examples before inserting it. No knowledge of regular expressions is needed.</p>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="s16">16. Your settings, updates and backups</h2>
     <ul>
-        <li>There are no known issues at this time.</li>
+        <li>All your settings are stored in one folder: <code>%AppData%\GLR\AdvancedBOMViewer</code>. Do not edit these files by hand.</li>
+        <li>Before replacing or removing any of your files, BOM Viewer saves a dated copy in the <code>Backups</code> folder (the last 10 copies are kept).</li>
+        <li>After an update BOM Viewer asks <em>Do you want to keep your settings?</em> Choose <strong>Yes</strong> to keep everything and get the new properties.</li>
+        <li>To start again from scratch use <strong>Restore All Factory Settings...</strong> in the Configuration Editor (tab 8). Saved presets are kept.</li>
+        <li>If a settings file is damaged, BOM Viewer opens with the factory settings, keeps a copy of the file and tells you once. If only part of a file can be read, the rest is used and the original is kept in Backups.</li>
+        <li>The license is checked each time BOM Viewer opens; you are reminded during the last 30 days before it expires.</li>
     </ul>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="s17">17. Typical workflows</h2>
+
+    <div class="workflow-example">
+        <strong>"I need a report of all screws and bolts."</strong>
+        <ol>
+            <li>Choose <code>Parts Only</code>.</li>
+            <li>Search <code>(All Columns)</code> for <code>screw;bolt</code> and press Enter.</li>
+            <li>Click <code>Export...</code>, choose <em>Only rows shown in the grid</em> and Excel.</li>
+        </ol>
+    </div>
+
+    <div class="workflow-example">
+        <strong>"Every purchased component must have a Vendor."</strong>
+        <ol>
+            <li>In <code>Edit Config</code>, tab 6, add a rule on <code>Vendor</code> with the condition <em>BOM Structure Equals Purchased</em> and the check <em>Required</em>.</li>
+            <li>Turn on the <code>Checker</code> and tick <code>Show only issues</code>.</li>
+            <li>Select the rows, type the vendor with <code>Edit properties...</code>: the rows you fix stay in the list until you are done.</li>
+        </ol>
+    </div>
+
+    <div class="workflow-example">
+        <strong>"I want to change the material of all the brackets."</strong>
+        <ol>
+            <li>Search <code>Part Number</code> <em>Starts With</em> <code>BRK</code>.</li>
+            <li>Select the rows, right-click the Material cell and choose <code>Edit properties...</code></li>
+            <li>Pick the material: masses update at once, and one Undo step reverts everything.</li>
+        </ol>
+    </div>
+
+    <div class="workflow-example">
+        <strong>"What changed between two model states?"</strong>
+        <ol>
+            <li>Click <code>Compare</code>, choose the Target model state and click <code>▶</code>.</li>
+            <li>Tick only <code>Added</code>, <code>Removed</code> and <code>Modified</code>.</li>
+            <li>Click <code>Export...</code> to send the comparison in Excel or HTML.</li>
+        </ol>
+    </div>
+
+    <div class="workflow-example">
+        <strong>"Show me which parts are steel and which are aluminium, in the model."</strong>
+        <ol>
+            <li>Open the <code>Dashboard</code> and choose <code>Material</code>.</li>
+            <li>Tick <code>3D Heatmap</code> in the panel: the model takes the chart colors.</li>
+            <li>Click the Steel slice to select its rows and components.</li>
+        </ol>
+    </div>
+
+    <div class="workflow-example">
+        <strong>"Group sheet metal parts by material and thickness."</strong>
+        <ol>
+            <li>Choose <code>Parts Only</code> and click <code>Group Settings</code>.</li>
+            <li>Choose <code>Material</code>, then <code>Thickness</code>, then <code>Part Number</code>.</li>
+            <li>Save the layout with <code>Presets &gt; Save Preset...</code> to reuse it in one click.</li>
+        </ol>
+    </div>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="s18">18. Support and version history</h2>
+
+    <h3>18.1 Support</h3>
+    <p>For questions, feedback, bug reports or requests, write to:<br>
+    <span class="contact-info">gianluca.larocca.gm@gmail.com</span></p>
+    <p>Support may ask you to create an empty file named <code>debug.log.enable</code> in the settings folder, so that BOM Viewer writes a log of the problem. Remove the file when the problem is solved.</p>
+
+    <h3>18.2 Version history</h3>
+    <table>
+        <thead>
+            <tr><th style="width: 15%;">Version</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>7.0</td>
+                <td><strong>Major release:</strong> Model Data view; Isolate rows; Show only issues as a work list, also in tree views; search that filters tree views keeping the parents; Excel-style column filters; Material, Appearance, BOM Structure and Revit Category on many components at once; Paste from Excel; one Undo step per command; Dashboard and 3D Heatmap with shared colors and Validation Issues; BOM Compare that keeps the Base on screen; export to several formats at once with filters in the files; presets of all three views with Home and session memory; backups of your settings, update with migration and factory restore; Read-Only mode and support for Inventor Read-only Mode.</td>
+            </tr>
+            <tr><td>6.0</td><td>Contextual editing, formula protection, tree icons, export numbering, BOM Compare with model states, iAssembly members and external files.</td></tr>
+            <tr><td>5.0</td><td>BOM Compare, real-time sync, multi-level grouping, composite sorting, protected columns, Revit Category, per-document layouts.</td></tr>
+            <tr><td>4.0</td><td>Unit integrity with &lt;Error&gt;, normalized Dashboard charts, BOM override tooltips, new validation operators.</td></tr>
+            <tr><td>3.x</td><td>Interactive Dashboard, export headers and notes.</td></tr>
+        </tbody>
+    </table>
 
 </body>
 </html>
