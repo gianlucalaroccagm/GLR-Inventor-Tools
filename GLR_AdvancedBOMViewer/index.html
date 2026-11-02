@@ -376,7 +376,7 @@
 
     <h3>2.5 Keeping the view up to date</h3>
     <ul>
-        <li>Changes made with BOM Viewer appear at once. Changes made in Inventor (iProperties, components added or suppressed, model states) are picked up automatically.</li>
+        <li>Changes made with BOM Viewer appear at once. Changes made in Inventor (iProperties, components added or suppressed, model states), and Inventor's Undo and Redo, are picked up automatically.</li>
         <li>When the data must be read again, the status bar says <em>View out of date</em> and <code>↻</code> turns green: click it.</li>
         <li>In tab 8 of the Configuration Editor you can set <strong>Synchronization</strong> to <em>Manual</em> if you prefer to refresh yourself.</li>
     </ul>
@@ -427,6 +427,7 @@
     <h3>4.2 Icons and thumbnails</h3>
     <ul>
         <li>The first column shows the type of component: part, sheet metal, assembly, weldment, Cable &amp; Harness, tube &amp; pipe, frame, virtual component, group of different files.</li>
+        <li>The <em>Component Type</em> column gives the same type as text, in English whatever the language of Inventor, so you can sort, filter, group and export it.</li>
         <li>A blue arrow ⬆ marks a <em>promoted</em> component (moved up from a Phantom); the tooltip names its parent. A grey frame marks files referenced from the cloud.</li>
         <li>The <code>Thumbnail</code> column shows the image of each file. Thumbnails appear all together and are reused when you reopen the window, until the file changes.</li>
         <li>BOM Structure uses Inventor's own icons, in the cell and in its list.</li>
@@ -549,11 +550,12 @@
         <li>Paste writes where it can: for each locked row it asks whether to skip it and continue (<em>Apply to all remaining cases</em> answers for all of them).</li>
     </ul>
 
-    <h3>7.3 Delete, Edit properties, Uppercase and Title Case</h3>
+    <h3>7.3 Delete, Edit properties, Uppercase, Title Case and Replace</h3>
     <ul>
         <li><strong>Delete</strong> empties the cell. Material, Appearance, BOM Structure and Revit Category cannot be emptied.</li>
         <li><strong>Edit properties...</strong> (right-click) gives one value to all selected rows, with the right input: list, calendar or text box. It is off if any selected cell is locked, and when the main assembly row is selected together with other rows (Paste can write both).</li>
         <li><strong>Uppercase</strong> and <strong>Title Case</strong> convert the text of the selected rows in text columns.</li>
+        <li><strong>Replace...</strong> replaces a text inside the values of the selected rows (<em>Find</em>, <em>Replace with</em>, <em>Match case</em>). Formulas are not changed. If the text is not found, a message says so.</li>
     </ul>
 
     <h3>7.4 Formulas</h3>
@@ -609,7 +611,7 @@
         <li>Overridden quantities are shown in <em><u>italic underline</u></em>, with the tooltip <em>Quantity is overridden in Inventor Assembly BOM.</em></li>
         <li>Columns: <em>Item Qty</em>, <em>Total Qty</em>, <em>Base Qty</em>, <em>Item / Total Mass</em>, <em>Item / Total Area</em>, <em>Item / Total Volume</em>, also for group rows. <em>Total Mass</em> is the real mass of the occurrences, as in Inventor.</li>
         <li>A mass that Inventor has not updated shows <code>N/A</code>, never an old value. <strong>Update Mass</strong> calculates only the files shown that need it, without marking them as modified.</li>
-        <li>In the Configuration Editor (tab 7) choose how lengths and masses are shown: in each file's unit (<em>Strict</em>), in the main assembly's unit, or in a unit of your choice, with your number of decimals.</li>
+        <li>In the Configuration Editor (tab 7) choose how lengths, masses, areas and volumes are shown: in each file's unit (<em>Strict</em>), in the main assembly's unit, or in a unit of your choice, with your number of decimals. Areas and volumes use the length unit squared or cubed (for example mm^2 and mm^3), as in the iProperties of Inventor.</li>
         <li>When values cannot be added correctly (pieces with lengths, or different units in <em>Strict</em>), the cell shows <code>&lt;Error&gt;</code> and the tooltip explains why.</li>
     </ul>
     <div class="beyond">
@@ -625,7 +627,7 @@
     <!-- ============================================================ -->
     <h2 id="s10">10. Validation rules and Show only issues</h2>
     <ul>
-        <li>Rules check your iProperties automatically: required fields, allowed values (value lists), length, format (patterns) and letter case. You write them once in the Configuration Editor (tab 6) and they apply to every assembly.</li>
+        <li>Rules check your iProperties automatically: required fields, allowed values (value lists), length, minimum and maximum value (numbers and dates), format (patterns) and letter case. You write them once in the Configuration Editor (tab 6) and they apply to every assembly.</li>
         <li>A rule applies to all components, or only to those that meet its conditions (AND / OR), for example <em>BOM Structure equals Purchased</em>.</li>
         <li>Turn validation on or off with the <strong>Checker</strong> button. A non-compliant cell is highlighted; hover over it to read why.</li>
         <li>On a group row, the tooltip tells you how many files do not comply and which ones. Rules on <em>Item Qty</em>, <em>Total Qty</em>, <em>Total Mass</em>, <em>Total Area</em> and <em>Total Volume</em> check the row total.</li>
@@ -699,7 +701,8 @@
         <li><strong>All rows</strong> (default): the file contains the complete BOM, with all branches open; searches and filters of the grid are not applied. <strong>Only rows shown in the grid</strong> exports exactly what you see.</li>
         <li>The columns are the ones shown in the grid, in the same order.</li>
         <li>Add your <strong>notes</strong> and optional <strong>item numbering</strong> (label, start value, increment, delimiter; 1.2.3 by level in tree views). The file header shows assembly, view, filters, date and author.</li>
-        <li><strong>Excel</strong> and <strong>HTML</strong> keep the colors, thumbnails and tooltips of the grid and include filters to work on the file. In Excel numbers and dates are real values and tree levels are grouped with + and -. The HTML file opens in any browser and prints the whole table with the header on every page.</li>
+        <li><strong>Excel</strong> and <strong>HTML</strong> keep the colors, thumbnails and tooltips of the grid and include filters to work on the file. The grey of cells you cannot edit is not exported: it only matters in the grid. In Excel numbers and dates are real values and tree levels are grouped with + and -. The HTML file opens in any browser and prints the whole table with the header on every page.</li>
+        <li>The <strong>HTML</strong> file is a picture of the grid: its first column has the same tree lines and component icons (not in BOM Compare). <strong>Excel</strong> is for working with the data and has no drawings; use the <em>Component Type</em> column if you need the type of each row.</li>
         <li><strong>CSV</strong> contains the data only, with a <em>Level</em> column in tree views.</li>
         <li>With the Checker on, an <em>Issues</em> column tells which rows comply. During BOM Compare you can export the comparison to Excel or HTML, with a <em>Change</em> column.</li>
     </ul>
@@ -739,7 +742,7 @@
             <tr><td>2-4. Model Data / Structured / Parts Only View</td><td>The column order of each view.</td></tr>
             <tr><td>5. Value Lists</td><td>Lists of values for the cell drop-downs and for rules, and which property uses which list.</td></tr>
             <tr><td>6. Validation Rules</td><td>Rules for each property: optional conditions and at least one check, with your own error message if you like.</td></tr>
-            <tr><td>7. Unit Settings</td><td>Units and decimals of lengths and masses.</td></tr>
+            <tr><td>7. Unit Settings</td><td>Units and decimals of lengths, masses, areas and volumes.</td></tr>
             <tr><td>8. Application Settings</td><td>Editing Mode (Read-Only / Editor), Session Persistence, Synchronization, and <em>Restore All Factory Settings...</em></td></tr>
             <tr><td>9. Color Settings</td><td>Grid colors, chart palette and 3D Heatmap opacity and limits.</td></tr>
         </tbody>
@@ -755,7 +758,7 @@
     <ul>
         <li>All your settings are stored in one folder: <code>%AppData%\GLR\AdvancedBOMViewer</code>. Do not edit these files by hand.</li>
         <li>Before replacing or removing any of your files, BOM Viewer saves a dated copy in the <code>Backups</code> folder (the last 10 copies are kept).</li>
-        <li>After an update BOM Viewer asks <em>Do you want to keep your settings?</em> Choose <strong>Yes</strong> to keep everything and get the new properties.</li>
+        <li>After an update your settings are kept and the new properties are added automatically; a copy of the previous files is saved in Backups.</li>
         <li>To start again from scratch use <strong>Restore All Factory Settings...</strong> in the Configuration Editor (tab 8). Saved presets are kept.</li>
         <li>If a settings file is damaged, BOM Viewer opens with the factory settings, keeps a copy of the file and tells you once. If only part of a file can be read, the rest is used and the original is kept in Backups.</li>
         <li>The license is checked each time BOM Viewer opens; you are reminded during the last 30 days before it expires.</li>
@@ -838,7 +841,7 @@
         <tbody>
             <tr>
                 <td>7.0</td>
-                <td><strong>Major release:</strong> Model Data view; Isolate rows; Show only issues as a work list, also in tree views; search that filters tree views keeping the parents; Excel-style column filters; Material, Appearance, BOM Structure and Revit Category on many components at once; Paste from Excel; one Undo step per command; Dashboard and 3D Heatmap with shared colors and Validation Issues; BOM Compare that keeps the Base on screen; export to several formats at once with filters in the files; presets of all three views with Home and session memory; backups of your settings, update with migration and factory restore; Read-Only mode and support for Inventor Read-only Mode.</td>
+                <td><strong>Major release:</strong> Model Data view; Isolate rows; Show only issues as a work list, also in tree views; search that filters tree views keeping the parents; Excel-style column filters; Material, Appearance, BOM Structure and Revit Category on many components at once; Paste from Excel; one Undo step per command; Dashboard and 3D Heatmap with shared colors and Validation Issues; BOM Compare that keeps the Base on screen; export to several formats at once with filters in the files; presets of all three views with Home and session memory; backups of your settings, update with migration and factory restore; Read-Only mode and support for Inventor Read-only Mode; Component Type column; Replace in text columns; Min Value and Max Value checks; areas and volumes in the unit you choose; Inventor's Undo and Redo picked up by the grid; HTML export with the tree and icons of the grid.</td>
             </tr>
             <tr><td>6.0</td><td>Contextual editing, formula protection, tree icons, export numbering, BOM Compare with model states, iAssembly members and external files.</td></tr>
             <tr><td>5.0</td><td>BOM Compare, real-time sync, multi-level grouping, composite sorting, protected columns, Revit Category, per-document layouts.</td></tr>
