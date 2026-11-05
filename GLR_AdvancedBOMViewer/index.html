@@ -7,7 +7,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Guide: GLR Advanced BOM Viewer - v7.0</title>
+    <title>User Guide: GLR Advanced BOM Viewer - v7.1</title>
     <style>
         * {
             margin: 0;
@@ -279,7 +279,7 @@
         <div style="width: 125px;"></div>
     </div>
 
-    <div class="version-info"><strong>Version 7.0</strong> &mdash; User Guide</div>
+    <div class="version-info"><strong>Version 7.1</strong> &mdash; User Guide</div>
 
     <h2>Contents</h2>
     <ul class="toc">
@@ -662,7 +662,8 @@
         <li>The <strong>3D Heatmap</strong> button colors the model by any visible column, or by <em>Validation Issues</em> (compliant and non-compliant parts). <em>Clear Heatmap</em> removes the colors.</li>
         <li>The colors follow your work: they update after edits, visibility changes, open branches, model state changes and shape changes.</li>
         <li>The colors are temporary graphics: your files are never changed and Inventor's Undo list stays clean.</li>
-        <li>Hidden, suppressed, reference and virtual components are not colored, nor are parts with more bodies than the limit set in the Configuration Editor (tab 9). Opacity is set there too.</li>
+        <li>The colors are shaded like real parts and show edges when Inventor's visual style shows them. A selected component keeps its color and gets edges in the selection color.</li>
+        <li>Hidden, suppressed, reference, phantom and virtual components are not colored, nor are parts with more bodies than the limit set in the Configuration Editor (tab 9). The brightness of the 3D colors is set there too.</li>
     </ul>
     <p>Dashboard and 3D Heatmap are not available in Model Data and during BOM Compare; the Dashboard is also off in Structured Multi-level.</p>
     <div class="beyond">
@@ -744,7 +745,7 @@
             <tr><td>6. Validation Rules</td><td>Rules for each property: optional conditions and at least one check, with your own error message if you like.</td></tr>
             <tr><td>7. Unit Settings</td><td>Units and decimals of lengths, masses, areas and volumes.</td></tr>
             <tr><td>8. Application Settings</td><td>Editing Mode (Read-Only / Editor), Session Persistence, Synchronization, and <em>Restore All Factory Settings...</em></td></tr>
-            <tr><td>9. Color Settings</td><td>Grid colors, chart palette and 3D Heatmap opacity and limits.</td></tr>
+            <tr><td>9. Color Settings</td><td>Grid colors, chart palette and 3D Heatmap brightness and limits.</td></tr>
         </tbody>
     </table>
 
@@ -839,6 +840,10 @@
             <tr><th style="width: 15%;">Version</th><th>Description</th></tr>
         </thead>
         <tbody>
+            <tr>
+                <td>7.1</td>
+                <td>New 3D Heatmap drawing: colors shaded like real parts, with edges that follow Inventor's visual style, and faster to create on large assemblies. A selected component keeps its color and gets edges in the selection color. Phantom parts are no longer colored. 3D Brightness in the Configuration Editor (tab 9) replaces 3D Opacity; BurnThrough removed; Validation heatmap colors are always solid.</td>
+            </tr>
             <tr>
                 <td>7.0</td>
                 <td><strong>Major release:</strong> Model Data view; Isolate rows; Show only issues as a work list, also in tree views; search that filters tree views keeping the parents; Excel-style column filters; Material, Appearance, BOM Structure and Revit Category on many components at once; Paste from Excel; one Undo step per command; Dashboard and 3D Heatmap with shared colors and Validation Issues; BOM Compare that keeps the Base on screen; export to several formats at once with filters in the files; presets of all three views with Home and session memory; backups of your settings, update with migration and factory restore; Read-Only mode and support for Inventor Read-only Mode; Component Type column; Replace in text columns; Min Value and Max Value checks; areas and volumes in the unit you choose; Inventor's Undo and Redo picked up by the grid; HTML export with the tree and icons of the grid.</td>
